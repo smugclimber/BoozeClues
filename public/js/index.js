@@ -3,6 +3,9 @@
   socket.on('countdown', function(time){
   	$("#sqr").text(time.left);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Aesthetic nonsense
   	if(time.left <=20){
   		$("#sqr").css("background-color", "green");
   	}
@@ -15,6 +18,7 @@
   	if(time.left === 0){
   		$("#sqr").text("Time's Up!");
   	}
+<<<<<<< HEAD
   });
 
   $("#sqr").on("click", function(){
@@ -37,6 +41,8 @@
   		})
   	});
 =======
+=======
+>>>>>>> Aesthetic nonsense
   });
 
   $("#sqr").on("click", function(){
