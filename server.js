@@ -43,10 +43,11 @@ db.sequelize.sync({ force: true }).then(function() {
 });
 
 //Socket events
+//====================================
 io.on('connection', function (socket) {
 
 //Onclick countdown broadcast
-  var count = 20;
+  var count = 21;
   var counter;
   function timer () {
   	count = count - 1;
