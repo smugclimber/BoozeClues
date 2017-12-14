@@ -21,8 +21,12 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+<<<<<<< HEAD
     "material-design-lite": "^1.3.0",
     "mysql": "^2.15.0",
+=======
+    "mysql2": "^1.5.1",
+>>>>>>> dba1685c05f2635de91394d79fc4dcf0212a8bd6
     "sequelize": "^4.28.1",
     "socket.io": "^2.0.4"
   }
