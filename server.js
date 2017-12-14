@@ -41,3 +41,27 @@ db.sequelize.sync({ force: true }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+//Socket events
+io.on('connection', function (socket) {
+
+//Onclick countdown broadcast
+  var count = 20;
+  var counter;
+  function timer () {
+  	count = count - 1;
+  	if(count < 0){
+  		clearInterval(counter)
+  		count = 20;
+  		return;
+  	}
+  	io.sockets.emit('countdown', {left: count});
+  }
+
+  socket.on('start timer', function(data){
+  	if(data.start){
+  		counter = setInterval(timer, 1000);
+  	}
+  });
+
+});
