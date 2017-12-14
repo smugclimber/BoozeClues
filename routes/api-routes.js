@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 var db = require("../models");
+=======
+>>>>>>> onClick triggers api calls for trivia questions
 var request = require("request");
 
 module.exports = function(app){
@@ -106,4 +109,3 @@ module.exports = function(app){
 		},i * 1000)
 	}
 };
-
