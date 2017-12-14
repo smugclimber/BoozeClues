@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
-module.exports = function(app){
->>>>>>> Added onClick triggered countdown broadcast by socket.io
 
 var express = require('express');
 var router = express.Router();
