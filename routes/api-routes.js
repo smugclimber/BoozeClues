@@ -1,8 +1,10 @@
 
+
 var db = require("../models");
 var request = require("request");
 
 module.exports = function(app){
+
 
 
   app.post("/api/users", function(req, res) {
@@ -107,5 +109,5 @@ module.exports = function(app){
 			cb(game)
 		},i * 1000)
 	}
-};
 
+};
