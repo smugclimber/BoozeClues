@@ -2,6 +2,7 @@
 
   socket.on('countdown', function(time){
   	$("#sqr").text(time.left);
+<<<<<<< HEAD
   	if(time.left <=20){
   		$("#sqr").css("background-color", "green");
   	}
@@ -35,4 +36,11 @@
   			console.log(questions)
   		})
   	});
+=======
+  });
+
+  $("#sqr").on("click", function(){
+  	console.log("click working");
+  	socket.emit('start timer', {start: true});
+>>>>>>> Added onClick triggered countdown broadcast by socket.io
   });
