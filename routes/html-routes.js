@@ -1,3 +1,4 @@
+
 var express = require('express');
 var router = express.Router();
 
@@ -5,7 +6,6 @@ var router = express.Router();
         // console.log("accessed");
         res.render("index");
       });
-
      // Login
         router.get("/login", function(req, res) {
             res.render("login");
@@ -20,3 +20,4 @@ var router = express.Router();
        });
 
 module.exports = router;
+
