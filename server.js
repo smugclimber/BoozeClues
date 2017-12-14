@@ -130,6 +130,5 @@ io.on('connection', function (socket) {
   		counter = setInterval(timer, 1000);
   	}
   });
-
 });
 
