@@ -14,34 +14,27 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [6]
     },
-    game_id: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    corr_ans: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 0
-    },
-    game_vics: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 0
-    },
     access: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-    }
-  });
+    },
+});
 
-    User.associate = function(models) {
-      // Associating User with Games
-      // When an User is deleted, also delete any associated Games
-      User.hasMany(models.teams, {
-        onDelete: "cascade"
-      });
-    };
+  // User.hasMany(models.teams, {
+  //   onDelete: "CASCADE",
+  //   foreignKey: {
+  //     allowNull: true
+  //   }
+  // })
+  User.associate = function(models) {
+    User.belongsToMany(models.Team, {
+      foreignKey: {
+        allowNull: false
+      },
+      through: 'UserTeams'
+    })
+  };
 
   return User;
 };

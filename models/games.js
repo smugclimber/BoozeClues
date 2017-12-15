@@ -7,16 +7,17 @@ module.exports = function(sequelize, DataTypes) {
     },
     active: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: true
     },
   });
 
-  Game.associate = function(models) {
-    // Associating User with Games
-    // When an User is deleted, also delete any associated Games
-    Game.hasMany(models.teams, {
-      onDelete: "cascade"
-    });
-  };
+  // Game.associate = function(models) {
+  //   // Associating User with Games
+  //   // When an User is deleted, also delete any associated Games
+  //   Game.hasMany(models.teams, {
+  //     onDelete: "cascade"
+  //   });
+  // };
   return Game;
 };
