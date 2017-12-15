@@ -125,7 +125,8 @@ io.on('connection', function (socket) {
   	count = count - 1;
   	if(count < 0){
   		clearInterval(counter)
-  		count = 20;
+  		count = 21;
+      io.sockets.emit('times up', {done: true});
   		return;
   	}
   	io.sockets.emit('countdown', {left: count});
@@ -135,6 +136,10 @@ io.on('connection', function (socket) {
   	if(data.start){
   		counter = setInterval(timer, 1000);
   	}
+  });
+
+  socket.on('push question', function(data){
+    io.sockets.emit('do the thing', data);
   });
 
 });

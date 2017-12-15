@@ -31,7 +31,7 @@ function getQs(req, cb){
 	}
 	setTimeout(function(){
 		cb(game)
-	}, 3000)
+	}, 3000);
 }
 
 
