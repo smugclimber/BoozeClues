@@ -1,0 +1,60 @@
+<div class="container">
+		<div class="row">
+			<div class="third">
+			<div class="col s6">
+				<div id="nextQuestion"><button class="btn" id="getQs">Get Questions</button><button class="btn" id="nxtQ">Next Question</button><p id="user_info"></p></div>
+			</div>
+			<div class="col s6">
+				<div id="timer"></div>
+			</div>
+			</div><!--End third-->
+		</div>
+		<div class="row">
+			<div class="blah">
+			<div class="col s12">
+				<div id="points"></div>
+			</div>
+			</div><!--End blah-->
+		</div>
+		<div class="row">
+			<div class="third">
+			<div class="col s12">
+				<div id="qstn">Garbage text</div>
+			</div>
+			</div><!--End third-->
+		</div>
+		<div class="row">
+			<div class="third">
+			<form action='#'>
+			<div class="col s6">
+				<div class="row">
+					<div class="col s12">
+						<div id="ansA" class="ans valign-wrapper"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<div id="ansC" class="ans valign-wrapper"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col s6">
+				<div class="row">
+					<div class="col s12">
+						<div id="ansB" class="ans valign-wrapper"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<div id="ansD" class="ans valign-wrapper"></div>
+					</div>
+				</div>
+			</div>
+			</form>
+			</div><!--End third-->
+		</div>
+	</div><!--End container-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socketMod.js"></script>
