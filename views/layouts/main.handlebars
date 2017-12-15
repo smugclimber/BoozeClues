@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<!-- Bootstrap -->
+	<!-- Materialize -->
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<!-- JQuery -->
@@ -18,9 +18,15 @@
 
 
 </head>
-<script>$(".button-collapse").sideNav();</script>
+
 <body>
 	{{{ body }}}
+	<script>
+		$(document).ready(function() {
+			$('.modal').modal();
+			// $(".button-collapse").sideNav();
+		});
+	</script>
 </body>
 
 </html>

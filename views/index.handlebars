@@ -1,23 +1,71 @@
 <nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo center">BoozeClues</a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center">BoozeClues</a>
+        <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
+        <ul class="right">
+            <li>
+                <a href="">Login</a></li>
+        </ul>
+        <!-- <ul class="right-align show-on-small hide-on-med-and-down">
       <li class="active">
           <a href="">Login</a></li>
-    </ul>
+    </ul> -->
 
-  </div>
+    </div>
 </nav>
 
-<div class='container center-align'>
+<div class='container'>
     <!-- LOGO -->
-    <i id='logoIcon' class=" material-icons">account_circle</i>
+    <div class='center-align'>
+        <i id='logoIcon' class=" material-icons">account_circle</i>
+    </div>
+
     <!-- DESCRIPTION -->
     <div class="">
-        <h4>Description</h4>
+        <h4 class='center-align'>Description</h4>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
         </p>
     </div>
+
+    <!-- SUBMIT FORM -->
+    <div class='center-align'>
+        <button data-target="modal1" class="btn modal-trigger"><i class="material-icons right">create</i>Sign Up</button>
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal1" class="modal ">
+    <div class="">
+            <h2 class="">
+                Fill this
+            </h2>
+    </div>
+    <div class="modal-container">
+        <div class="input-field">
+            <input id="first_name2" type="text" class="validate">
+            <label class="active" for="first_name2">Email</label>
+        </div>
+        <div class="input-field">
+            <input id="first_name2" type="text" class="validate">
+            <label class="active" for="first_name2">Password</label>
+        </div>
+        <div class="input-field">
+            <input id="first_name2" type="text" class="validate">
+            <label class="active" for="first_name2">Confirm Password</label>
+        </div>
+        <p>Register as...</p>
+            <p>
+              <input name="group1" type="radio" id="test1" />
+              <label for="test1">Player</label>
+              <input name="group1" type="radio" id="test2" />
+              <label for="test2">Establishment</label>
+          </>
+        </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn ">Let's play</a>
+    </div>
+  </div><!-- END MODAL -->
+
+</div>
+
 </div>

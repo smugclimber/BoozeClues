@@ -8,3 +8,23 @@ body {
     color: fff;
     text-align: center;
 }
+
+#signUpButton {
+    background-color: light-green;
+    color: white;
+}
+
+#modal1{
+    width: 400px;
+}
+
+
+.modal-container{
+    padding: 0 15px 15px 15px;
+}
+
+.modal h2{
+    text-align: center;
+    color: #25A699;
+    font-size: 24pt;
+}
