@@ -1,11 +1,11 @@
-
+var path = require("path");
 
 module.exports = function(app){
 
 	//Routes go here
 
-app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+app.get('/socketTest', function (req, res) {
+  res.sendfile(path.join(__dirname + './../public/socketTest.html'));
 });
 
 
