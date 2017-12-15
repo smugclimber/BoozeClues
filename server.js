@@ -83,6 +83,7 @@ var io = require('socket.io')(server);
 
 //Routes
 //====================================
+<<<<<<< HEAD
 var routes = require("./routes/html-routes.js");
 
 var user = require("./routes/user-routes.js");

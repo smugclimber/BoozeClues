@@ -2,7 +2,6 @@
 var express = require('express');
 var router = express.Router();
 
-
     router.get("/", function(req, res) {
         // console.log("accessed");
         res.render("index");
@@ -23,6 +22,11 @@ var router = express.Router();
        router.get("/user", function(req, res) {
            res.render("user");
        });
+
+    router.get("/socketTest", function(req, res){
+    	res.render("socketTest");
+    });
+
 
 module.exports = router;
 

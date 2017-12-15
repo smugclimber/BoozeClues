@@ -31,8 +31,6 @@
   	}
   	$.post("/api/qstn", gameData).done(function(response){
   		// console.log(response.questions);
-  		response.questions.map(function(questions){
-  			console.log(questions)
-  		});
+  			console.log(response.questions)
   	});
   });
