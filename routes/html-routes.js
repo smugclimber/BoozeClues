@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 
+
     router.get("/", function(req, res) {
         // console.log("accessed");
         res.render("index");
@@ -31,6 +32,8 @@ var router = express.Router();
     	res.render("socketMod");
     });
 
-
 module.exports = router;
+
+
+
 
