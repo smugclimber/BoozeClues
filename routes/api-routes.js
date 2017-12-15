@@ -1,5 +1,5 @@
 
-
+var request = require("request");
 var db = require("../models");
 var request = require("request");
 var express = require('express');
@@ -49,6 +49,5 @@ function getQs(req, cb){
 			res.json({questions: data});
 		});
 	});
-
 
 module.exports = router;
