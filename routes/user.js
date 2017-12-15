@@ -10,13 +10,16 @@ var router = express.Router();
         });
         // Register user
         router.post("/register", function(req, res) {
+          console.log('IN HERE IN HERE IN HERE IN HERE')
           var name =req.body.name;
           var email =req.body.email;
           var username =req.body.password;
           var password2 = req.body.password2;
+          console.log(req)
+          console.log(req.body)
         // Validation
         req.checkBody('name','Name is required').notEmpty();
-        var errors = req.validationError();
+        var errors = req.validationErrors();
         if(errors){
           console.log('YES');
         }else {
