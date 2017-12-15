@@ -2,10 +2,6 @@
 
   socket.on('countdown', function(time){
   	$("#sqr").text(time.left);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Aesthetic nonsense
   	if(time.left <=20){
   		$("#sqr").css("background-color", "green");
   	}
@@ -18,7 +14,6 @@
   	if(time.left === 0){
   		$("#sqr").text("Time's Up!");
   	}
-<<<<<<< HEAD
   });
 
   $("#sqr").on("click", function(){
@@ -40,32 +35,4 @@
   			console.log(questions)
   		});
   	});
-=======
-=======
->>>>>>> Aesthetic nonsense
-  });
-
-  $("#sqr").on("click", function(){
-  	socket.emit('start timer', {start: true});
-<<<<<<< HEAD
->>>>>>> Added onClick triggered countdown broadcast by socket.io
-=======
-  });
-
-
-  $("#qstn").on("click", function(){
-  	var gameData = {
-  		rs: 3,
-  		qspr: 5,
-  		r0cat: "9",
-  		r1cat: "20",
-  		r2cat: "27"
-  	}
-  	$.post("/api/qstn", gameData).done(function(response){
-  		// console.log(response.questions);
-  		response.questions.map(function(questions){
-  			console.log(questions)
-  		})
-  	});
->>>>>>> onClick triggers api calls for trivia questions
   });
