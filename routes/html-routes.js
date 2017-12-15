@@ -27,6 +27,10 @@ var router = express.Router();
     	res.render("socketTest");
     });
 
+    router.get("/socketMod", function(req,res){
+    	res.render("socketMod");
+    });
+
 
 module.exports = router;
 

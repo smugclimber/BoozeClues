@@ -124,7 +124,7 @@ io.on('connection', function (socket) {
   function timer () {
   	count = count - 1;
   	if(count < 0){
-  		clearInterval(counter)
+  		clearInterval(counter);
   		count = 21;
       io.sockets.emit('times up', {done: true});
   		return;
