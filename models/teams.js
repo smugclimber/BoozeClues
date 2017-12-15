@@ -1,3 +1,4 @@
+
 //A Game has many Teams and a Team has many Users and a User has many Teams
 module.exports = function(sequelize, DataTypes) {
   var Team = sequelize.define("Team", {
@@ -26,3 +27,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return Team;
 };
+
