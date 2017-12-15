@@ -1,4 +1,4 @@
-//A Game has many Teams and a Team has many Users
+//A Game has many Teams and a Team has many Users and a User has many Teams
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     pic: {
@@ -35,13 +35,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  User.associate = function(models) {
-    // Associating User with Games
-    // When an User is deleted, also delete any associated Games
-    User.hasMany(models.games, {
-      onDelete: "cascade"
-    });
-  };
+    User.associate = function(models) {
+      // Associating User with Games
+      // When an User is deleted, also delete any associated Games
+      User.hasMany(models.teams, {
+        onDelete: "cascade"
+      });
+    };
 
   return User;
 };
