@@ -69,7 +69,6 @@ User.associate = function(models) {
   // })
 };
 return User
-
 };
 // };
 //   User.prototype.validPassword = function(password) {

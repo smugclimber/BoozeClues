@@ -34,6 +34,7 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //Static directory
+<<<<<<< HEAD
 //app.use(express.static(path.join(__dirname, '/public')));
 // app.use(express.static(process.cwd() + "/public"));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -63,6 +64,9 @@ app.use(expressValidator({
       value : value
     };
   }
+=======
+app.use(express.static(process.cwd() + "/public"));
+>>>>>>> Everything works for now
 
 }));
 
@@ -82,10 +86,10 @@ var io = require('socket.io')(server);
 
 //Routes
 //====================================
+
 var routes = require("./routes/html-routes.js");
-
 var user = require("./routes/user-routes.js")
-
+var apiRoutes = require("./routes/api-routes.js");
 
 
 // require("./routes/html-routes.js")(app);
@@ -97,6 +101,7 @@ var user = require("./routes/user-routes.js")
 
 app.use("/", routes);
 app.use("/", user);
+app.use("/api", apiRoutes);
 
 //Setup sequelize
 //====================================

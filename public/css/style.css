@@ -36,3 +36,31 @@ body {
 #joinGameForm {
     padding: 0 40px 0 40px;
 }
+
+/*CSS for socketTest, to be deleted*/
+#sqr {
+	width: 100%; 
+	height: 28vh; 
+	background-color: green; 
+	border: 5px solid black; 
+	font-size: 2.5em; 
+	font-weight: bold; 
+	color: white; 
+	text-align: center; 
+	transition: background-color 0.5s ease;
+	margin: 0 auto;
+} 
+.ans {
+	width: 100%; 
+	height: 14vh; 
+	background-color: 
+	blue; color: white;
+} 
+.third{ 
+	height: 30vh; 
+	border: 2px solid black;
+} 
+.blah{
+	height: 1.5rem; 
+	border: 2px solid grey;
+}
