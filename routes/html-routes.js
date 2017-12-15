@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-    // Use Handlebars to render the main index.html page with the movies in it.
+
     router.get("/", function(req, res) {
         console.log("accessed");
         res.render("index");
@@ -10,9 +10,13 @@ var router = express.Router();
         router.get("/login", function(req, res) {
             res.render("login");
         });
-    // Login
+    // User Dashboard
        router.get("/register", function(req, res) {
            res.render("register");
+       });
+    // User Dashboard
+       router.get("/user", function(req, res) {
+           res.render("user");
        });
 
 

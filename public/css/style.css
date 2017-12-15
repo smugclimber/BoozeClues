@@ -3,10 +3,10 @@ body {
 }
 
 #logoIcon {
-    padding-top: 25px;
-    font-size: 250px;
+    padding-top: 25pt;
+    font-size: 150pt;
     color: fff;
-    text-align: center;
+    /* text-align: center; */
 }
 
 #signUpButton {
@@ -27,4 +27,12 @@ body {
     text-align: center;
     color: #25A699;
     font-size: 24pt;
+}
+
+#sideInfo{
+    padding: 0 15pt 0 15pt;
+}
+
+#joinGameForm {
+    padding: 0 40px 0 40px;
 }
