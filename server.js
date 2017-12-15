@@ -22,7 +22,6 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //Static directory
-//app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(process.cwd() + "/public"));
 
 //Setup socket.io
@@ -32,14 +31,10 @@ var io = require('socket.io')(server);
 //Routes
 //====================================
 var htmlRoutes = require("./routes/html-routes.js");
+var apiRoutes = require("./routes/api-routes.js");
 // require("./routes/html-routes.js")(app);
-
-// Root get route
-// app.get("/", function(req, res) {
-// console.log("hello");
-//   });
-
 app.use("/", htmlRoutes);
+app.use("/api", apiRoutes);
 
 //Setup sequelize
 //====================================

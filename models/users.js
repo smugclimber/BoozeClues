@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     // Associating User with Games
     // When an User is deleted, also delete any associated Games
-    User.hasMany(models.games, {
+    User.hasMany(models.Game, {
       onDelete: "cascade"
     });
   };
