@@ -23,8 +23,8 @@
 
   $("#qstn").on("click", function(){
   	var gameData = {
-  		rs: 3,
-  		qspr: 5,
+  		rounds: 3,
+  		qstnsPerRound: 5,
   		r0cat: "9",
   		r1cat: "20",
   		r2cat: "27"
@@ -33,6 +33,6 @@
   		// console.log(response.questions);
   		response.questions.map(function(questions){
   			console.log(questions)
-  		})
+  		});
   	});
   });

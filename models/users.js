@@ -1,3 +1,4 @@
+
 //A Game has many Teams and a Team has many Users
 var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
@@ -85,3 +86,4 @@ return User
 
 //   return User;
 // };
+
