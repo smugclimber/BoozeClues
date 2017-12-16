@@ -7,6 +7,20 @@ var db = require("../models");
     });
   });
 
+  app.post("/register", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password,
+      access:   req.body.group1
+    }).then(function() {
+      res.redirect(307, "/login");
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
 };
 // var db = require("../models");
 // var passport = require("../config/passport");

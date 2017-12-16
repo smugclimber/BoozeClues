@@ -6,9 +6,6 @@ CREATE TABLE users(
   pic VARCHAR(80) NULL,
   email VARCHAR(40) NOT NULL,
   pass VARCHAR(20) NOT  NULL,
-  game_id VARCHAR(500) NULL,
-  corr_ans INT(5) DEFAULT 0,
-  game_vics INT(4) DEFAULT 0,
   access BOOLEAN NOT NULL,
   PRIMARY KEY (id)
 );
@@ -23,9 +20,15 @@ CREATE TABLE games(
 CREATE TABLE teams(
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(30) NOT NULL,
-  users VARCHAR(30) NOT NULL,
-  game_id INT(3) NOT NULL,
-  score INT (4) DEFAULT 0,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE users(
+  id INT NOT NULL AUTO_INCREMENT,
+  num_corr INT(300) NULL,
+  total_ques INT(300) NOT NULL,
+  scor_val INT(1) DEFAULT 0,
+  game_vic BOOLEAN DEFAULT false,
   PRIMARY KEY (id)
 );
 

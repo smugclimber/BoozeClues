@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 //A Game has many Teams and a Team has many Users
 var bcrypt = require("bcryptjs");
+=======
+//A Game has many Teams and a Team has many Users and a User has many Teams
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("Users", {
     name: {
@@ -20,24 +24,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    game_id: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    corr_ans: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 0
-    },
-    game_vics: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 0
-    },
     access: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
+<<<<<<< HEAD
     }
   },
   {
@@ -86,6 +77,25 @@ return User
 //   return User;
 // };
 
+=======
+    },
+});
+
+  // User.hasMany(models.teams, {
+  //   onDelete: "CASCADE",
+  //   foreignKey: {
+  //     allowNull: true
+  //   }
+  // })
+  User.associate = function(models) {
+    User.belongsToMany(models.Team, {
+      foreignKey: {
+        allowNull: false
+      },
+      through: 'UserTeams'
+    })
+  };
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
 
 
 

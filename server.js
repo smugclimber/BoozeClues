@@ -5,13 +5,21 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var router = express.Router();
 var path = require("path");
+<<<<<<< HEAD
 var cookieParser = require("cookie-Parser");
+=======
+var cookieParser = require("cookies-Parser");
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
 var expressValidator = require("express-Validator");
 var flash = require("connect-flash");
 var session = require("express-session");
 var passport = require("passport");
 var localStrategy = require("passport-local").Starategy;
+<<<<<<< HEAD
 SALT_WORK_FACTOR = 12;
+=======
+
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
 
 //Setup Express App
 //=====================================
@@ -80,7 +88,11 @@ var io = require('socket.io')(server);
 //Routes
 //====================================
 var routes = require("./routes/html-routes.js");
+<<<<<<< HEAD
 var user = require("./routes/user-routes.js")
+=======
+var user = require("./routes/user")
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
 // require("./routes/html-routes.js")(app);
 
 // Root get route

@@ -1,4 +1,5 @@
 <h2 class="page-header">Register</h2>
+<<<<<<< HEAD
 {{#if errors}}
 {{#each errors}}
 <div class="notice error"><i class "icon-remove-sign icon-large"></i> {{msg}}
@@ -10,24 +11,51 @@
   <div class="form-group">
     <label>Name</lable>
       <input type="text" class="form-control" placeholder="name"name="name">
+=======
+<form method="post" action="/register">
+    <div class="form-group">
+        <p>Name</p>
+        <input type="text" class="form-control" placeholder="name" name="name">
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
     </div>
     <div class="form-group">
-      <lable>Username</lable>
-      <input type="text" class="form-control" placeholder="Username" name="username">
+        <p>Username</p>
+        <input type="text" class="form-control" placeholder="Username" name="username">
     </div>
     <div class="form-group">
-      <lable>Email</lable>
-      <input type="email" class="form-control"placeholder="Email" name="email">
+        <p>Email</p>
+        <input type="email" class="form-control" placeholder="Email" name="email">
     </div>
     <div class="form-group">
-      <lable>Password</lable>
-      <input type="password" class="form-control"placeholder="Password" name="password">
+        <p>Password</p>
+        <input type="password" class="form-control" placeholder="Password" name="password">
     </div>
+<<<<<<< HEAD
     <!-- <div class="form-group">
       <lable>Confirm Password</lable>
       <input type="password" class="form-control"placeholder="Password" name="password2">
     </div> -->
     <div class="center">
         <button type="submit" class="btn btn-default">Submit</button>
+=======
+    <div class="form-group">
+        <p>Confirm Password</p>
+        <input type="password" class="form-control" placeholder="Password" name="password2">
     </div>
-  </form>
+    <div class="form-group ">
+        <p>Register as...</p>
+
+        <input name="group1" type="radio" id="test1" />
+        <label for="test1">Player</label>
+        <input name="group1" type="radio" id="test2" />
+        <label for="test2">Establishment</label>
+
+    </div>
+    </div>
+
+    <div class="center container">
+
+        <button type="submit" class="btn btn-default hoverable">Submit</button>
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
+    </div>
+</form>

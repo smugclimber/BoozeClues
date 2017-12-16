@@ -1,16 +1,23 @@
+//A Game has many Teams and a Team has many Users and a User has many Teams
 module.exports = function(sequelize, DataTypes) {
-  var games = sequelize.define("games", {
-    burger_name: DataTypes.STRING,
-    devoured: {
+  var Game = sequelize.define("Game", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    active: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+      allowNull: false,
+      defaultValue: true
+    },
   });
-  return games;
+
+  // Game.associate = function(models) {
+  //   // Associating User with Games
+  //   // When an User is deleted, also delete any associated Games
+  //   Game.hasMany(models.teams, {
+  //     onDelete: "cascade"
+  //   });
+  // };
+  return Game;
 };
