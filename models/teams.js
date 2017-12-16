@@ -27,5 +27,6 @@ module.exports = function(sequelize, DataTypes) {
       through: 'TeamUsers'
     })
   };
+
   return Team;
 };

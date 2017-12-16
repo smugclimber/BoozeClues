@@ -15,7 +15,7 @@ var router = express.Router();
         router.post("/register", function(req, res) {
 
           console.log(req.body)
-          db.Users.create({
+          db.User.create({
               name: req.body.name,
               username: req.body.username,
               email: req.body.email,
