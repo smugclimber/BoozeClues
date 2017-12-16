@@ -11,12 +11,13 @@ var flash = require("connect-flash");
 var session = require("express-session");
 var passport = require("passport");
 var localStrategy = require("passport-local").Starategy;
-
+SALT_WORK_FACTOR = 12;
 
 //Setup Express App
 //=====================================
 var app = express();
 var PORT = process.env.PORT || 8080;
+
 
 //Setup bodyParser
 app.use(bodyParser.json());
@@ -79,7 +80,7 @@ var io = require('socket.io')(server);
 //Routes
 //====================================
 var routes = require("./routes/html-routes.js");
-var user = require("./routes/user")
+var user = require("./routes/user-routes.js")
 // require("./routes/html-routes.js")(app);
 
 // Root get route
