@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
+    "password": "password",
+=======
     "password": "!Q@W3e4r5t6y",
+>>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
     "database": "boozeclues_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
