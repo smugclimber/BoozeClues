@@ -23,15 +23,15 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // Score.associate = function(models) {
-  //   // We're saying that a Score should belong to an Team
-  //   // A Score can't be created without an Team due to the foreign key constraint
-  //   Score.belongsTo(models.teams, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Score.associate = function(models) {
+    // We're saying that a Score should belong to an Team
+    // A Score can't be created without an Team due to the foreign key constraint
+    Score.belongsTo(models.Team, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Score;
 };

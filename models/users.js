@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 //A Game has many Teams and a Team has many Users
 var bcrypt = require("bcryptjs");
-=======
-//A Game has many Teams and a Team has many Users and a User has many Teams
->>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("Users", {
     name: {
@@ -28,7 +24,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-<<<<<<< HEAD
     }
   },
   {
@@ -62,12 +57,20 @@ User.hook('beforeCreate', function(user, fn){
 User.associate = function(models) {
   // Associating User with Games
   // When an User is deleted, also delete any associated Games
-  User.hasMany(models.games, {
+  User.hasMany(models.Game, {
     onDelete: "cascade"
   });
+  // User.belongsToMany(models.Team, {
+  //   foreignKey: {
+  //     allowNull: false
+  //   },
+  //   through: 'UserTeams'
+  // })
 };
 return User
+
 };
+// };
 //   User.prototype.validPassword = function(password) {
 //     return bcrypt.compareSync(password, this.password);
 //   };
@@ -77,25 +80,6 @@ return User
 //   return User;
 // };
 
-=======
-    },
-});
-
-  // User.hasMany(models.teams, {
-  //   onDelete: "CASCADE",
-  //   foreignKey: {
-  //     allowNull: true
-  //   }
-  // })
-  User.associate = function(models) {
-    User.belongsToMany(models.Team, {
-      foreignKey: {
-        allowNull: false
-      },
-      through: 'UserTeams'
-    })
-  };
->>>>>>> a31e93456393667ba126f90228ab7fd3eff43fa7
 
 
 
