@@ -19,18 +19,19 @@
 
   //When receive question
   var answer;
+  var points
   socket.on('do the thing', function(trivia){
     answer = trivia.q.correct_answer;
     $("#user_info").text("Question " + (trivia.number +1) + " of " + trivia.total)
     $("#qstn").html("<h3>"+trivia.q.question+"</h3>");
     if(trivia.q.type === "multiple"){
-      $("#ansA").html("<input type='radio' name='answer' id='answrA' value='"+trivia.q.correct_answer+"'><label for='answrA'>"+trivia.q.correct_answer+"</label>");
+      $("#ansA").html("<input type='radio' name='answer' id='answrA' value='"+trivia.q.incorrect_answers[0]+"'><label for='answrA'>"+trivia.q.incorrect_answers[0]+"</label>");
       $("#ansA").css("background-color", "blue");
-      $("#ansB").html("<input type='radio' name='answer' id='answrB' value='"+trivia.q.incorrect_answers[0]+"'><label for='answrB'>"+trivia.q.incorrect_answers[0]+"</label>");
+      $("#ansB").html("<input type='radio' name='answer' id='answrB' value='"+trivia.q.incorrect_answers[1]+"'><label for='answrB'>"+trivia.q.incorrect_answers[1]+"</label>");
       $("#ansB").css("background-color", "blue");
-      $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[1]+"'><label for='answrC'>"+trivia.q.incorrect_answers[1]+"</label>");
+      $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrC'>"+trivia.q.incorrect_answers[2]+"</label>");
       $("#ansC").css("background-color", "blue");
-      $("#ansD").html("<input type='radio' name='answer' id='answrD' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrD'>"+trivia.q.incorrect_answers[2]+"</label>");
+      $("#ansD").html("<input type='radio' name='answer' id='answrD' value='"+trivia.q.incorrect_answers[3]+"'><label for='answrD'>"+trivia.q.incorrect_answers[3]+"</label>");
       $("#ansD").css("background-color", "blue");
     }
     if(trivia.q.type === "boolean"){
@@ -44,19 +45,21 @@
       $("#ansD").css("background-color", "grey");
     }
     if(trivia.q.difficulty === "hard"){
-      $(".blah").text("Points: 5");
+      points = 50;
+      $(".blah").text("Points: "+ points);
     }
     else if(trivia.q.difficulty === "medium"){
-      $(".blah").text("Points: 3");
+      points = 30;
+      $(".blah").text("Points: " + points);
     }
     else {
-      $(".blah").text("Points: 1");
+      points = 10;
+      $(".blah").text("Points: " + points);
     }
   });
 
   //When time expires
   socket.on('times up', function(){
-    console.log(answer);
     switch(answer) {
       case $("#ansA").text():
         $("#ansA").css("background-color", "green");

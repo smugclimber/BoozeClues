@@ -120,14 +120,42 @@ io.on('connection', function (socket) {
   	io.sockets.emit('countdown', {left: count});
   }
 
+  //Array shuffle
+function shuffle(array, cb) {
+  var currentIndex = array.length; 
+  var temporaryValue;
+  var randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  cb(array);
+}
+
+//When receive start timer event
   socket.on('start timer', function(data){
   	if(data.start){
   		counter = setInterval(timer, 1000);
   	}
   });
 
+//When receive push question event
   socket.on('push question', function(data){
-    io.sockets.emit('do the thing', data);
+    data.q.incorrect_answers.push(data.q.correct_answer);
+    shuffle(data.q.incorrect_answers, function(array){
+      data.q.incorrect_answers = array;
+      console.log(data.q.incorrect_answers);
+      io.sockets.emit('do the thing', data);
+    });
   });
 
 });
