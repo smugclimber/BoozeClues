@@ -127,7 +127,7 @@ io.on('connection', function (socket) {
   	io.sockets.emit('countdown', {left: count});
   }
 
-  //Array shuffle
+//Array shuffle
 function shuffle(array, cb) {
   var currentIndex = array.length; 
   var temporaryValue;
@@ -160,7 +160,6 @@ function shuffle(array, cb) {
     data.q.incorrect_answers.push(data.q.correct_answer);
     shuffle(data.q.incorrect_answers, function(array){
       data.q.incorrect_answers = array;
-      console.log(data.q.incorrect_answers);
       io.sockets.emit('do the thing', data);
     });
   });

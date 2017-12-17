@@ -20,6 +20,8 @@
   //Send get questions
   var gameQs = [];
   $("#getQs").on("click", function(){
+    $("#getQs").addClass("hide");
+    $("#spinner").addClass("active");
     console.log("triggering");
   	var gameData = {
   		rounds: 3,
@@ -31,7 +33,7 @@
   	$.post("/api/qstn", gameData).done(function(response){
   		 console.log(response.questions);
   			gameQs = response.questions;
-        $("#getQs").addClass("hide");
+        $("#spinner").removeClass("active");
         $("#nxtQ").removeClass("hide");
   	});
   });
