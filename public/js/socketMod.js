@@ -17,11 +17,6 @@
   	}
   });
 
-  //Send timer event
-  /*$("#timer").on("click", function(){
-  	socket.emit('start timer', {start: true});
-  });*/
-
   //Send get questions
   var gameQs = [];
   $("#getQs").on("click", function(){
