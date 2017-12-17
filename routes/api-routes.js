@@ -34,12 +34,6 @@ function getQs(req, cb){
 	}, 3000);
 }
 
-  router.post("/users", function(req, res) {
-    db.Users.create(req.body).then(function(dbUser) {
-      console.log("Created a user: "+dbUser)
-      res.json(dbUser);
-    });
-  });
 
   router.post("/register", function(req, res) {
     console.log(req.body);
