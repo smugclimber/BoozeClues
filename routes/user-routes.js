@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var localStrategy = require("passport-local").Strategy;
 
 var express = require('express');
 var router = express.Router();
@@ -19,7 +20,8 @@ var router = express.Router();
               name: req.body.name,
               username: req.body.username,
               email: req.body.email,
-              password: req.body.password
+              password: req.body.password,
+              access: req.body.access
               // password2 : req.body.password2
             }).then(function() {
               // res.redirect("/login");
