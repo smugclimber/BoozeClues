@@ -36,12 +36,15 @@
   	$.post("/api/qstn", gameData).done(function(response){
   		 console.log(response.questions);
   			gameQs = response.questions;
+        $("#getQs").addClass("hide");
+        $("#nxtQ").removeClass("hide");
   	});
   });
 
   //Send question and timer event
   var question = 0;
   $("#nxtQ").on("click", function(){
+    $("#nxtQ").addClass("disabled");
     console.log(gameQs[question]);
     socket.emit('push question', {q: gameQs[question], number: question, total: gameQs.length});
     socket.emit('start timer', {start: true});
@@ -52,13 +55,13 @@
     $("#user_info").text("Question " + question + " of " + gameQs.length)
     $("#qstn").html("<h3>"+trivia.q.question+"</h3>");
     if(trivia.q.type === "multiple"){
-      $("#ansA").html("<input type='radio' name='answer' id='answrA' value='"+trivia.q.correct_answer+"'><label for='answrA'>"+trivia.q.correct_answer+"</label>");
+      $("#ansA").html("<input type='radio' name='answer' id='answrA' value='"+trivia.q.incorrect_answers[0]+"'><label for='answrA'>"+trivia.q.incorrect_answers[0]+"</label>");
       $("#ansA").css("background-color", "blue");
-      $("#ansB").html("<input type='radio' name='answer' id='answrB' value='"+trivia.q.incorrect_answers[0]+"'><label for='answrB'>"+trivia.q.incorrect_answers[0]+"</label>");
+      $("#ansB").html("<input type='radio' name='answer' id='answrB' value='"+trivia.q.incorrect_answers[1]+"'><label for='answrB'>"+trivia.q.incorrect_answers[1]+"</label>");
       $("#ansB").css("background-color", "blue");
-      $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[1]+"'><label for='answrC'>"+trivia.q.incorrect_answers[1]+"</label>");
+      $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrC'>"+trivia.q.incorrect_answers[2]+"</label>");
       $("#ansC").css("background-color", "blue");
-      $("#ansD").html("<input type='radio' name='answer' id='answrD' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrD'>"+trivia.q.incorrect_answers[2]+"</label>");
+      $("#ansD").html("<input type='radio' name='answer' id='answrD' value='"+trivia.q.incorrect_answers[3]+"'><label for='answrD'>"+trivia.q.incorrect_answers[3]+"</label>");
       $("#ansD").css("background-color", "blue");
     }
     if(trivia.q.type === "boolean"){
@@ -72,19 +75,19 @@
       $("#ansD").css("background-color", "grey");
     }
     if(trivia.q.difficulty === "hard"){
-      $(".blah").text("Points: 5");
+      $(".blah").text("Points: 50");
     }
     else if(trivia.q.difficulty === "medium"){
-      $(".blah").text("Points: 3");
+      $(".blah").text("Points: 30");
     }
     else {
-      $(".blah").text("Points: 1");
+      $(".blah").text("Points: 10");
     }
   });
 
   //When time's up
   socket.on('times up', function(){
-    console.log(gameQs[question-1].correct_answer);
+    $("#nxtQ").removeClass("disabled");
     switch(gameQs[question-1].correct_answer) {
       case $("#ansA").text():
         $("#ansA").css("background-color", "green");
