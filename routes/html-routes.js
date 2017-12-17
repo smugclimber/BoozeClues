@@ -11,8 +11,8 @@ var router = express.Router();
             res.render("login");
         });
     // User Dashboard
-       router.get("/register", function(req, res) {
-           res.render("register");
+       router.get("/userdash", function(req, res) {
+           res.render("user-dash");
        });
     // User Dashboard
        router.get("/user", function(req, res) {
