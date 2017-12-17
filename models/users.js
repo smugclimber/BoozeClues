@@ -44,13 +44,10 @@ module.exports = function(sequelize, DataTypes) {
 }
 );
 User.hook('beforeCreate', function(user, fn){
-  var salt = bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
-    return salt
-  });
-  bcrypt.hash(user.password, salt, null, function(err, hash){
-    if(err) return next(err);
-    user.password =hash;
-    return fn(null, user)
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
+     bcrypt.hash(user.password, salt, function(err, hash){
+      user.password = hash;
+    });
   });
 })
 User.associate = function(models) {

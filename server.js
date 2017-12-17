@@ -71,7 +71,7 @@ app.use(flash());
 
 // Global Vars
 app.use(function (req,res,next){
-  res.locals.success_msg = req.flash('succes_msg');
+  res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
   next();
@@ -84,7 +84,9 @@ var io = require('socket.io')(server);
 //====================================
 var routes = require("./routes/html-routes.js");
 
-var user = require("./routes/user-routes.js")
+var user = require("./routes/user-routes.js");
+
+var appRoute = require("./routes/app-routes.js")
 
 
 
@@ -97,6 +99,7 @@ var user = require("./routes/user-routes.js")
 
 app.use("/", routes);
 app.use("/", user);
+// app.use("/", appRoute)
 
 //Setup sequelize
 //====================================
