@@ -41,20 +41,24 @@ var router = express.Router();
           // req.flash('success_msg', 'You are registered and can now login')
           
           }else {
-           db.Users.create(req.body).then(function(err, user) {
+           db.Users.create(req.body).then(function(err,user) {
             if(err) throw err;
-             console.log('=================>', user)
-              
-            });
+             console.log(user);   
+            }); 
+            // .catch(function(err) {
+            //   console.log(err);
+            //   res.json(err);
+
+            // });
            req.flash('success_msg', 'You are registered and can now login')
-           res.redirect("/login");
+          res.redirect("/login");
 
            // .catch(function(err) {
            //    console.log(err);
            //    res.json(err);
            //  });
           }
-          });
+});
        
       
 

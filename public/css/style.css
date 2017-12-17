@@ -1,7 +1,7 @@
 body {
     background-color: white;
 }
-
+/* MAIN PAGE */
 #logoIcon {
     padding-top: 25pt;
     font-size: 150pt;
@@ -14,20 +14,6 @@ body {
     color: white;
 }
 
-#modal1{
-    width: 400px;
-}
-
-
-.modal-container{
-    padding: 0 15px 15px 15px;
-}
-
-.modal h2{
-    text-align: center;
-    color: #25A699;
-    font-size: 24pt;
-}
 
 #sideInfo{
     padding: 0 15pt 0 15pt;
@@ -35,4 +21,15 @@ body {
 
 #joinGameForm {
     padding: 0 40px 0 40px;
+}
+/* USER GAME SCREEN */
+#opt-1{
+    text-align: auto;
+    height: 80pt;
+    color: white;
+    background-color: blue;
+}
+
+#test{
+    text-align: center;
 }

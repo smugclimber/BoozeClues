@@ -1,16 +1,21 @@
-INSERT INTO users (email, pass, access, createdAt, updatedAt)
-VALUES ("smugclimber@gmail.com", "mypassword", false, '2018-11-11', '2018-11-11'), ("omar@aol.com", "hispassword", false, '2018-11-11', '2018-11-11'), ("bar@barlouie.com", "barpassword", true, '2018-11-11', '2018-11-11'), ("bar@crafthouse.com", "craftpassword", true, '11-11-2018', '11-11-2018');
-
-INSERT INTO games (name, active)
-VALUES ("Taco Tuesday Trivia", false), ("Saturday Trivia", false), ("History Monday", false), ("Throwback Thursday", false);
-
-INSERT INTO teams (name)
-VALUES ("Buttheads"), ("Putin on the Ritz"), ("Jersey Jerks"); ("Alabama Jerks"), ("Buttheads");
-
-INSERT INTO scores (num_corr, total_ques, scor_val, game_vic)
-VALUES (4, 10, 40, false), (7, 10, 70, false), (10, 10, 100, false), (2, 10, 20, false);
-
 SELECT * FROM users;
 SELECT * FROM games;
 SELECT * FROM teams;
 SELECT * FROM scores;
+SELECT * FROM userteams;
+SELECT * FROM teamusers;
+
+INSERT INTO users (name, username, email, password, access, createdAt, updatedAt)
+VALUES ("Nick", "Nick", "smugclimber@gmail.com", "password", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Omar", "Omar", "omar@aol.com", "password", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Bar Louie", "Bar Louie", "bar@barlouie.com", "barpassword", true, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Crafthouse", "Crafthouse", "bar@crafthouse.com", "craftpassword", true, '1000-01-01 00:00:00', '1000-01-01 00:00:00');
+
+INSERT INTO games (name, active, createdAt, updatedAt)
+VALUES ("Taco Tuesday Trivia", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Saturday Trivia", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("History Monday", false,'1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Throwback Thursday", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00');
+
+INSERT INTO teams (name, createdAt, updatedAt, GameId)
+VALUES ("Buttheads", '1000-01-01 00:00:00', '1000-01-01 00:00:00', 1), ("Putin on the Ritz", '1000-01-01 00:00:00', '1000-01-01 00:00:00', 1), ("Jersey Jerks", '1000-01-01 00:00:00', '1000-01-01 00:00:00', 2), ("Alabama Jerks", '1000-01-01 00:00:00', '1000-01-01 00:00:00', 2), ("Buttheads", '1000-01-01 00:00:00', '1000-01-01 00:00:00', 2);
+
+INSERT INTO scores (num_corr, total_ques, scor_val, game_vic, createdAt, updatedAt, TeamId)
+VALUES (4, 10, 40, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 1), (7, 10, 70, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 2), (10, 10, 100, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 4), (2, 10, 20, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 5);
+
+INSERT INTO userteams (createdAt, updatedAt, undefined, TeamId)
+VALUES ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 1, 3), ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 2, 2), ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 3, 4);
