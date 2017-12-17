@@ -41,7 +41,7 @@ function getQs(req, cb){
   });
 
 
-  app.post("/register", function(req, res) {
+  router.post("/register", function(req, res) {
     console.log(req.body);
     db.User.create({
       email: req.body.email,
@@ -55,7 +55,7 @@ function getQs(req, cb){
     });
   });
 
-};
+
 // var db = require("../models");
 // var passport = require("../config/passport");
 // 
