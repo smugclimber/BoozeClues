@@ -43,7 +43,7 @@ var router = express.Router();
           }else {
            db.Users.create(req.body).then(function(user) {
              console.log('=================>', user)
-              res.redirect("/login");
+              res.redirect("/user");
             }).catch(function(err) {
               console.log(err);
               res.json(err);

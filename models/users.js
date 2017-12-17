@@ -58,14 +58,18 @@ User.associate = function(models) {
   // When an User is deleted, also delete any associated Games
   User.hasMany(models.Game, {
     onDelete: "cascade"
-  });
-  // User.belongsToMany(models.Team, {
-  //   foreignKey: {
-  //     allowNull: false
-  //   },
-  //   through: 'UserTeams'
-  // })
-};
+  })
+  };
+
+  User.associate = function(models) {
+    User.belongsToMany(models.Team, {
+      foreignKey: {
+        allowNull: false
+      },
+      through: 'TeamUsers'
+    })
+  };
+
 return User
 
 };

@@ -7,6 +7,14 @@ module.exports = function(sequelize, DataTypes) {
     },
   });
 
+  Team.associate = function(models) {
+    Team.belongsToMany(models.User, {
+      foreignKey: {
+        allowNull: false
+      },
+      through: 'TeamUsers'
+    })
+  };
 
   Team.associate = function(models) {
     // Associating Score with Team
@@ -14,9 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     Team.hasOne(models.Score, {
       onDelete: "cascade"
     });
-
   };
-
 
   return Team;
 };
