@@ -84,7 +84,9 @@ var io = require('socket.io')(server);
 //====================================
 var routes = require("./routes/html-routes.js");
 
-var user = require("./routes/user-routes.js")
+var user = require("./routes/user-routes.js");
+
+var appRoute = require("./routes/app-routes.js")
 
 
 
@@ -97,6 +99,7 @@ var user = require("./routes/user-routes.js")
 
 app.use("/", routes);
 app.use("/", user);
+// app.use("/", appRoute)
 
 //Setup sequelize
 //====================================

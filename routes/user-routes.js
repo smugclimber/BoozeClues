@@ -1,6 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
-
+var localStrategy = require("passport-local").Strategy;
 var express = require('express');
 var router = express.Router();
     // Register
@@ -13,23 +13,12 @@ var router = express.Router();
       //   });
         // Register user
         router.post("/register", function(req, res) {
-
-          console.log(req.body)
-          db.Users.create({
-              name: req.body.name,
-              username: req.body.username,
-              email: req.body.email,
-              password: req.body.password
-              // password2 : req.body.password2
-            }).then(function() {
-              // res.redirect("/login");
-            }).catch(function(err) {
-              console.log(err);
-              res.json(err);
-            });
           var name =req.body.name;
           var email =req.body.email;
-          var username =req.body.password;
+          var username =req.body.username;
+          var password =req.body.password;
+          // var player = req.body.player;
+          var access =req.body.access
           // var password2 = req.body.password2;
           // console.log(req)
           // console.log(req.body)
@@ -44,13 +33,24 @@ var router = express.Router();
         // req.checkBody('password2','paswords do not match').equals(req.body.password);
 
         var errors = req.validationErrors();
-        if(errors){
+        if(errors.length > 0){
+          console.log('===============there was an error======>')
           res.render('register',{
             errors:errors
           })
-        }else {
-          console.log('PASSED');
-        }
+          req.flash('succes_msg', 'You are registered and can now login')
+          
+          }else {
+           db.Users.create(req.body).then(function(user) {
+             console.log('=================>', user)
+              res.redirect("/login");
+            }).catch(function(err) {
+              console.log(err);
+              res.json(err);
+            });
+          }
           });
+       
+      
 
 module.exports = router;
