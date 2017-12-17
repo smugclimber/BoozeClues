@@ -6,6 +6,7 @@ var exphbs = require("express-handlebars");
 var router = express.Router();
 var path = require("path");
 var cookieParser = require("cookies-Parser");
+
 var expressValidator = require("express-Validator");
 var flash = require("connect-flash");
 var session = require("express-session");
@@ -13,6 +14,7 @@ var passport = require("passport");
 var localStrategy = require("passport-local").Starategy;
 
 SALT_WORK_FACTOR = 12;
+
 
 //Setup Express App
 //=====================================
@@ -81,8 +83,11 @@ var io = require('socket.io')(server);
 //Routes
 //====================================
 var routes = require("./routes/html-routes.js");
+
 var user = require("./routes/user-routes.js")
-//var user = require("./routes/user")
+
+
+
 // require("./routes/html-routes.js")(app);
 
 // Root get route
@@ -98,7 +103,7 @@ app.use("/", user);
 var db = require("./models");
 
 //Sync models and start server
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   server.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

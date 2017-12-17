@@ -12,12 +12,12 @@ module.exports = function(sequelize, DataTypes) {
     },
   });
 
-  // Game.associate = function(models) {
-  //   // Associating User with Games
-  //   // When an User is deleted, also delete any associated Games
-  //   Game.hasMany(models.teams, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+  Game.associate = function(models) {
+    // Associating User with Games
+    // When an User is deleted, also delete any associated Games
+    Game.hasMany(models.Team, {
+      onDelete: "cascade"
+    });
+  };
   return Game;
 };

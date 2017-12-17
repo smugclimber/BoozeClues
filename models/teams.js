@@ -7,26 +7,16 @@ module.exports = function(sequelize, DataTypes) {
     },
   });
 
-  // Team.belongsToMany(Users, {
-  //   through: 'TeamUsers'
-  // });
-
-  // Team.associate = function(models) {
-  //   // Associating Score with Team
-  //   // When an Team is deleted, also delete any associated Scores
-  //   Team.hasOne(models.scores, {
-  //     onDelete: "cascade"
-  //   });
-  // };
 
   Team.associate = function(models) {
-    Team.belongsToMany(models.User, {
-      foreignKey: {
-        allowNull: false
-      },
-      through: 'TeamUsers'
-    })
+    // Associating Score with Team
+    // When an Team is deleted, also delete any associated Scores
+    Team.hasOne(models.Score, {
+      onDelete: "cascade"
+    });
+
   };
+
 
   return Team;
 };
