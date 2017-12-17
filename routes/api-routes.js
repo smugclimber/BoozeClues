@@ -1,5 +1,4 @@
 
-
 var db = require("../models");
 var request = require("request");
 var express = require('express');
@@ -34,8 +33,6 @@ function getQs(req, cb){
 	}, 3000);
 }
 
-
-
   router.post("/users", function(req, res) {
     db.Users.create(req.body).then(function(dbUser) {
       console.log("Created a user: "+dbUser)
@@ -43,7 +40,7 @@ function getQs(req, cb){
     });
   });
 
-<<<<<<< HEAD
+
   app.post("/register", function(req, res) {
     console.log(req.body);
     db.User.create({
@@ -105,6 +102,5 @@ function getQs(req, cb){
 			res.json({questions: data});
 		});
 	});
-
 
 module.exports = router;

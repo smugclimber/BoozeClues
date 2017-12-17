@@ -34,6 +34,7 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //Static directory
+<<<<<<< HEAD
 //app.use(express.static(path.join(__dirname, '/public')));
 // app.use(express.static(process.cwd() + "/public"));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -63,6 +64,9 @@ app.use(expressValidator({
       value : value
     };
   }
+=======
+app.use(express.static(process.cwd() + "/public"));
+>>>>>>> 7771c3a1cc201eb3d53b21848779e7210a461161
 
 }));
 
@@ -82,6 +86,7 @@ var io = require('socket.io')(server);
 
 //Routes
 //====================================
+<<<<<<< HEAD
 
 var routes = require("./routes/html-routes.js");
 var user = require("./routes/user-routes.js")
@@ -97,6 +102,12 @@ var apiRoutes = require("./routes/api-routes.js");
 
 app.use("/", routes);
 app.use("/", user);
+=======
+var htmlRoutes = require("./routes/html-routes.js");
+var apiRoutes = require("./routes/api-routes.js");
+// require("./routes/html-routes.js")(app);
+app.use("/", htmlRoutes);
+>>>>>>> 7771c3a1cc201eb3d53b21848779e7210a461161
 app.use("/api", apiRoutes);
 
 //Setup sequelize

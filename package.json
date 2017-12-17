@@ -29,9 +29,12 @@
     "express-validator": "^4.3.0",
     "material-design-lite": "^1.3.0",
     "mysql2": "^1.5.1",
+<<<<<<< HEAD
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
+=======
+>>>>>>> 7771c3a1cc201eb3d53b21848779e7210a461161
     "request": "^2.83.0",
     "sequelize": "^4.28.1",
     "socket.io": "^2.0.4"

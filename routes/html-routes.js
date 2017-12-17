@@ -1,4 +1,5 @@
 
+
 var express = require('express');
 var router = express.Router();
 
@@ -26,7 +27,6 @@ var router = express.Router();
     router.get("/socketMod", function(req,res){
     	res.render("socketMod");
     });
-
 
 module.exports = router;
 
