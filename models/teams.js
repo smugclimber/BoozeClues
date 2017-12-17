@@ -17,13 +17,6 @@ module.exports = function(sequelize, DataTypes) {
 
   };
 
-  // Team.associate = function(models) {
-  //   Team.belongsToMany(models.User, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     },
-  //     through: 'TeamUsers'
-  //   })
-  // };
+
   return Team;
 };

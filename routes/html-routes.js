@@ -6,16 +6,6 @@ var router = express.Router();
         res.render("index");
       });
 
-
-    //  // Login
-    //     router.get("/login", function(req, res) {
-    //         res.render("login");
-    //     });
-    // // Register
-    //    router.get("/register", function(req, res) {
-    //        res.render("register");
-    //    });
-
      // Login
         router.get("/login", function(req, res) {
             res.render("login");
@@ -28,7 +18,5 @@ var router = express.Router();
        router.get("/user", function(req, res) {
            res.render("user");
        });
-
-
 
 module.exports = router;
