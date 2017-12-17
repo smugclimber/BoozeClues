@@ -17,7 +17,6 @@ var router = express.Router();
           var email =req.body.email;
           var username =req.body.username;
           var password =req.body.password;
-          // var player = req.body.player;
           var access =req.body.access
           // var password2 = req.body.password2;
           // console.log(req)
@@ -30,6 +29,7 @@ var router = express.Router();
         req.checkBody('email','Email is not valid').isEmail();
         req.checkBody('username','Username is required').notEmpty();
         req.checkBody('password','password is required').notEmpty();
+        req.checkBody('access','access is required').notEmpty();
         // req.checkBody('password2','paswords do not match').equals(req.body.password);
 
         var errors = req.validationErrors();
