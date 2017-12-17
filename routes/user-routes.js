@@ -30,7 +30,7 @@ var router = express.Router();
         req.checkBody('username','Username is required').notEmpty();
         req.checkBody('password','password is required').notEmpty();
         req.checkBody('access','access is required').notEmpty();
-        // req.checkBody('password2','paswords do not match').equals(req.body.password);
+        req.checkBody('password2','paswords do not match').equals(req.body.password);
 
         var errors = req.validationErrors();
         if(errors.length > 0){
