@@ -10,10 +10,14 @@ var router = express.Router();
         router.get("/login", function(req, res) {
             res.render("login");
         });
-    // User Dashboard
-       router.get("/userdash", function(req, res) {
-           res.render("user-dash");
+    // User Game Page
+       router.get("/usergame", function(req, res) {
+           res.render("user-game");
        });
+    // Bar Game Page
+      router.get("/bargame", function(req, res) {
+          res.render("bar-game");
+      });
     // User Dashboard
        router.get("/user", function(req, res) {
            res.render("user");
