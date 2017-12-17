@@ -38,16 +38,21 @@ var router = express.Router();
           res.render('register',{
             errors:errors
           })
-          req.flash('succes_msg', 'You are registered and can now login')
+          // req.flash('success_msg', 'You are registered and can now login')
           
           }else {
-           db.Users.create(req.body).then(function(user) {
+           db.Users.create(req.body).then(function(err, user) {
+            if(err) throw err;
              console.log('=================>', user)
-              res.redirect("/login");
-            }).catch(function(err) {
-              console.log(err);
-              res.json(err);
+              
             });
+           req.flash('success_msg', 'You are registered and can now login')
+           res.redirect("/login");
+
+           // .catch(function(err) {
+           //    console.log(err);
+           //    res.json(err);
+           //  });
           }
           });
        
