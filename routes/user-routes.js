@@ -62,10 +62,10 @@ var router = express.Router();
 
   
         router.post('/login',
-          passport.authenticate('local', {successRedirect:'/bargame', failureRedirect:'/login', failureFlash: true}),
+          passport.authenticate('local', {successRedirect:'/user', failureRedirect:'/login', failureFlash: true}),
           function(req, res){
             req.flash('success_msg', "Login Successful")
-            res.redirect('/bargame');
+            res.redirect('/user');
 
           });
       router.get('/logout', function(req, res){

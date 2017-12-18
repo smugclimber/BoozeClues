@@ -27,22 +27,21 @@
 			<a href="/" class="brand-logo center">BoozeClues</a>
 			<!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
 			<ul class="right">
-				<li>
+				{{#if user}}	
+			<!-- 	<li>
 					<a href="/user">Dashboard</a>
-				</li>
-				{{#if user}}
-	            <li>
-					<a href="/logout">Logout</a>
 				</li>
 				<li>
 					<a href="/usergame">User</a>
 				</li>
+				<li> -->
+					<a href="/logout">Logout</a>
+				</li>
 				{{else}}
-			
 				<li>
 					<a href="/login">Login</a>
-				</li>
-				{{/if}}
+				</li>	
+			   {{/if}}
 			</ul>
 			<!-- <ul class="right-align show-on-small hide-on-med-and-down">
 	      <li class="active">
