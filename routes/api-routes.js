@@ -32,7 +32,6 @@ function getQs(req, cb){
 		cb(game)
 	}, 3000);
 }
-<<<<<<< HEAD
 
 //API call to get questions
 	router.post("/qstn", function(req, res){
