@@ -68,7 +68,11 @@ var router = express.Router();
             res.redirect('/bargame');
 
           });
-      
+      router.get('/logout', function(req, res){
+        req.logout();
+        req.flash('success_msg', 'you are logged out');
+        res.redirect('/login');
+      });
        
       
 
