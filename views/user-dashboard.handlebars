@@ -43,28 +43,20 @@
 <div class="row">
     <div id="joinGameForm" class="col s12">
         <h4 class="page-header center">Join a Game</h4>
-        <form method="post" action="/user">
+        <form method="post" action="/user/login">
 
-          <div class="input-field">
+          <div class="input-field col 4">
 
             <input type="text" class="validate">
-            <label>Group Name</label>
-          </div>
-
-          <div class="input-field">
-          <input id="icon_prefix" type="text" class="validate">
-          <label class="" for="icon_prefix">Add a player</label>
-          <!-- <i class="material-icons ">account_circle</i> -->
-          <a class="btn-floating btn-small waves-effect waves-light light blue"><i class="material-icons right-align">add</i></a>
-          <br />
+            <label>Enter a new Team Name</label>
           </div>
 
           <div class="row">
-                  <div class="col 12">
-                    Search for a team:
+                  <div class="col 4">
+                    Enter a game ID:
                     <div class="input-field inline">
-                      <input id="gameId" type="text" class="validate">
-                      <label for="gameId" data-error="wrong" data-success="right">Enter your code here!</label>
+                      <input id="gameCode" type="text" class="validate">
+                      <label for="gameCode" data-error="wrong" data-success="right">ID here!</label>
                     </div>
                   </div>
                 </div>
