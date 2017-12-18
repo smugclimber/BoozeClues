@@ -86,10 +86,12 @@ var io = require('socket.io')(server);
 var routes = require("./routes/html-routes.js");
 var user = require("./routes/user-routes.js")
 var apiRoutes = require("./routes/api-routes.js");
-
+var appRouts = require("./routes/app-routes.js")
 app.use("/", routes);
 app.use("/", user);
+app.use("/", appRouts)
 app.use("/api", apiRoutes);
+
 
 //Setup sequelize
 //====================================
