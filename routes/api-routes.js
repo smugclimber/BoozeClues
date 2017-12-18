@@ -1,5 +1,4 @@
 
-
 var db = require("../models");
 var request = require("request");
 var express = require('express');
@@ -33,6 +32,7 @@ function getQs(req, cb){
 		cb(game)
 	}, 3000);
 }
+<<<<<<< HEAD
 
 //API call to get questions
 	router.post("/qstn", function(req, res){
@@ -71,6 +71,5 @@ function getQs(req, cb){
       res.json(err);
     });
   });
-
 
 module.exports = router;
