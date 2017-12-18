@@ -1,7 +1,7 @@
 var db = require("../models");
 
   app.post("/api/users", function(req, res) {
-    db.Users.create(req.body).then(function(dbUser) {
+    db.User.create(req.body).then(function(dbUser) {
       console.log("Created a user: "+dbUser)
       res.json(dbUser);
     });
@@ -21,10 +21,20 @@ var db = require("../models");
     });
   });
 
-};
+  app.get("/api/users/:id", function(req, res) {
+     // Find one Author with the id in req.params.id and return them to the user with res.json
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
 // var db = require("../models");
 // var passport = require("../config/passport");
-// 
+//
 // module.exports = function(app) {
 //   app.post("/api/login", passport.authenticate("local"), function(req, res) {
 //     res.json("/members");
