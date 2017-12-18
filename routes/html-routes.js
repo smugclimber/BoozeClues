@@ -23,7 +23,7 @@ var router = express.Router();
            res.render("user-dashboard");
        });
     // Bar Game Page
-       router.get("/bardashboard", function(req, res) {
+       router.get("/bar-dashboard", function(req, res) {
          res.render("bar-dashboard");
        });
 
