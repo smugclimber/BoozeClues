@@ -86,21 +86,19 @@ var io = require('socket.io')(server);
 var routes = require("./routes/html-routes.js");
 var user = require("./routes/user-routes.js")
 var apiRoutes = require("./routes/api-routes.js");
-
+var appRouts = require("./routes/app-routes.js")
 app.use("/", routes);
 app.use("/", user);
-<<<<<<< HEAD
-app.use("/", appRoute)
-=======
+app.use("/", appRouts)
 app.use("/api", apiRoutes);
->>>>>>> 0f658b069f490939e315f5ae0eb9a11c7afe22da
+
 
 //Setup sequelize
 //====================================
 var db = require("./models");
 
 //Sync models and start server
-db.sequelize.sync({force:true}).then(function() {
+db.sequelize.sync().then(function() {
   server.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

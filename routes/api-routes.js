@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 
 var db = require("../models");
 var request = require("request");
@@ -73,4 +71,4 @@ function getQs(req, cb){
   });
 
 module.exports = router;
->>>>>>> 0f658b069f490939e315f5ae0eb9a11c7afe22da
+
