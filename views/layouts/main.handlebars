@@ -16,7 +16,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- CSS  -->
 	<link rel="stylesheet" href="./css/style.css" type="text/css">
-	<title>Booze Clues111</title>
+	<title>Booze Clues!!!</title>
 
 
 </head>
@@ -30,15 +30,19 @@
 				<li>
 					<a href="/user">Dashboard</a>
 				</li>
+				{{#if user}}
+	            <li>
+					<a href="/logout">Logout</a>
+				</li>
 				<li>
 					<a href="/usergame">User</a>
 				</li>
+				{{else}}
+			
 				<li>
 					<a href="/login">Login</a>
 				</li>
-				<li>
-					<a href="/login">Logout</a>
-				</li>
+				{{/if}}
 			</ul>
 			<!-- <ul class="right-align show-on-small hide-on-med-and-down">
 	      <li class="active">
