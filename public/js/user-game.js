@@ -1,11 +1,7 @@
 
   var socket = io.connect('http://localhost:8080');
-var passport = require("../config/passport");
+/*var passport = require("../config/passport");
 var username = passport.username;
-
-$(document).ready(function() {
-
-  
 
   // Getting references to the name inout and author container, as well as the table body
   var nameInput = $("#author-name");
@@ -19,7 +15,6 @@ $(document).ready(function() {
   // Getting the intiial list of Authors
   getUserStats();
 
-
   // Function for retrieving authors and getting them ready to be rendered to the page
   function getUserStats() {
     $.get("/api/users", function(data) {
@@ -30,6 +25,7 @@ $(document).ready(function() {
       renderAuthorList(rowsToAdd);
       nameInput.val("");
     });
+    */
     
     //When receive timer event
   socket.on('countdown', function(time){
@@ -159,7 +155,6 @@ $(document).ready(function() {
     }
   });
 
-  }
 
   
 
