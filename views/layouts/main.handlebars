@@ -16,7 +16,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- CSS  -->
 	<link rel="stylesheet" href="./css/style.css" type="text/css">
-	<title>Booze Clues!!!</title>
+	<title>Booze Clues</title>
+  <link rel="shortcut icon" href="./images/BC_Logo_icon.png" type="image/vnd.microsoft.icon">
 
 
 </head>
@@ -27,22 +28,22 @@
 			<a href="/" class="brand-logo center">BoozeClues</a>
 			<!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
 			<ul class="right">
-				<li>
-					<a href="/user">Dashboard</a>
-				</li>
 				{{#if user}}
-	            <li>
-					<a href="/logout">Logout</a>
+			<!-- 	<li>
+					<a href="/user">Dashboard</a>
 				</li>
 				<li>
 					<a href="/usergame">User</a>
 				</li>
+				<li> -->
+					<a href="/logout">Logout</a>
+				</li>
 				{{else}}
-			
+
 				<li>
 					<a href="/login">Login</a>
 				</li>
-				{{/if}}
+			   {{/if}}
 			</ul>
 			<!-- <ul class="right-align show-on-small hide-on-med-and-down">
 	      <li class="active">
@@ -66,7 +67,7 @@
 		{{/if}}
 
 		{{{body}}}
-		
+
 	</div>
 
 
@@ -75,7 +76,7 @@
 	</footer>
 	<script>
 		$(document).ready(function() {
-			$('.modal').modal();
+			$('.dropdown-button').dropdown('open');
 			// $(".button-collapse").sideNav();
 		});
 	</script>

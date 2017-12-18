@@ -19,17 +19,13 @@ var router = express.Router();
           res.render("bar-game");
       });
     // User Dashboard
-       router.get("/user", function(req, res) {
-           res.render("user");
+       router.get("/user-dashboard", function(req, res) {
+           res.render("user-dashboard");
        });
-
-    router.get("/socketTest", function(req, res){
-    	res.render("socketTest");
-    });
-
-    router.get("/socketMod", function(req,res){
-    	res.render("socketMod");
-    });
+    // Bar Game Page
+       router.get("/bar-dashboard", function(req, res) {
+         res.render("bar-dashboard");
+       });
 
 module.exports = router;
 

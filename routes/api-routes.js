@@ -56,7 +56,6 @@ function getQs(req, cb){
 		});
 	});
 
-
   router.post("/register", function(req, res) {
     console.log(req.body);
     db.User.create({
@@ -72,3 +71,4 @@ function getQs(req, cb){
   });
 
 module.exports = router;
+
