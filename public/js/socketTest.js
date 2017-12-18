@@ -58,8 +58,30 @@
     }
   });
 
+  var dbInput
   //When time expires
   socket.on('times up', function(){
+    var userChoice = $('input[name=answer]:checked', '#userAnswer').val();
+    if(userChoice === answer){
+      dbInput = {
+        num_corr: 'num_corr + 1',
+        total_ques: 'total_ques + 1',
+        score_val: 'score_val + '+ points,
+      };
+    }
+    else {
+      dbInput = {
+        total_ques: 'total_ques + 1'
+      };
+    }
+    console.log(dbInput);
+    $.ajax({
+      type: 'PUT',
+      url: "/api/user_game",
+      data: dbInput
+    }).done(function(resp){
+      console.log(resp);
+    });
     switch(answer) {
       case $("#ansA").text():
         $("#ansA").css("background-color", "green");
