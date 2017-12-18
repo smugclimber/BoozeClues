@@ -19,8 +19,8 @@ var router = express.Router();
           res.render("bar-game");
       });
     // User Dashboard
-       router.get("/user", function(req, res) {
-           res.render("user");
+       router.get("/user-dashboard", function(req, res) {
+           res.render("user-dashboard");
        });
     // Bar Game Page
        router.get("/bardashboard", function(req, res) {
