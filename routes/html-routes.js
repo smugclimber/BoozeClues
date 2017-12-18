@@ -22,5 +22,9 @@ var router = express.Router();
        router.get("/user", function(req, res) {
            res.render("user");
        });
+    // Bar Game Page
+       router.get("/bardashboard", function(req, res) {
+         res.render("bar-dashboard");
+       });
 
 module.exports = router;
