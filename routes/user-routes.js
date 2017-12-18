@@ -39,12 +39,12 @@ var router = express.Router();
             errors:errors
           })
           // req.flash('success_msg', 'You are registered and can now login')
-          
+
           }else {
            db.Users.create(req.body).then(function(err,user) {
             if(err) throw err;
-             console.log(user);   
-            }); 
+             console.log(user);
+            });
             // .catch(function(err) {
             //   console.log(err);
             //   res.json(err);
@@ -60,12 +60,12 @@ var router = express.Router();
           }
 });
 
-  
+
         router.post('/login',
-          passport.authenticate('local', {successRedirect:'/user', failureRedirect:'/login', failureFlash: true}),
+          passport.authenticate('local', {successRedirect:'/user-dashboard', failureRedirect:'/login', failureFlash: true}),
           function(req, res){
             req.flash('success_msg', "Login Successful")
-            res.redirect('/user');
+            res.redirect('/user-dashboard');
 
           });
       router.get('/logout', function(req, res){
@@ -73,7 +73,7 @@ var router = express.Router();
         req.flash('success_msg', 'you are logged out');
         res.redirect('/login');
       });
-       
-      
+
+
 
 module.exports = router;

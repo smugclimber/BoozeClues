@@ -1,3 +1,4 @@
+
 var express = require('express');
 var router = express.Router();
 
@@ -5,7 +6,6 @@ var router = express.Router();
         // console.log("accessed");
         res.render("index");
       });
-
      // Login
         router.get("/login", function(req, res) {
             res.render("login");
@@ -19,8 +19,13 @@ var router = express.Router();
           res.render("bar-game");
       });
     // User Dashboard
-       router.get("/user", function(req, res) {
-           res.render("user");
+       router.get("/user-dashboard", function(req, res) {
+           res.render("user-dashboard");
+       });
+    // Bar Game Page
+       router.get("/bar-dashboard", function(req, res) {
+         res.render("bar-dashboard");
        });
 
 module.exports = router;
+
