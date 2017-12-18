@@ -7,31 +7,47 @@
   <div id="test-swipe-1" class="col s12 blue">Test 1</div>
   <div id="test-swipe-2" class="col s12 green">Test 3</div>
     </div>
-    <div class=" col s4">
-        <h4>Timer</h4>
-        <h1>-17</h1>
+    <div id="timer" class=" col s4">
+        <h3 id="time"></h3>
     </div>
 </div><!--End Timer and stats-->
 
 <div class="row">
-    <p id="diff-display"> Question Difficulty: HARD!</p>
+    <div class="col s4">
+        <p id="qstn_info"></p>
+    </div>
+    <div class="col s4">
+        <p id="diff"></p>
+    </div>
+    <div class="col s4">
+        <p id="points"></p>
+    </div
+</div>
+
+<div class="row">
+    <div class="col s12" id="qstn">
+    </div>
 </div>
 
 <!-- ANSWERS DISPLAY -->
+<form id="userAnswer">
 <div class="row">
-    <div class="col s6 valign-wrapper" id="opt-1">
-        <h4> ANSWER GOES HERE</h4>
+    <div class="col s6 valign-wrapper opt" id="opt-a">
+        <div id="ansA" class="ans"></div>
     </div>
-    <div class="col s6 valign-wrapper" id="opt-1">
-        <h4 id="test"> ANSWER GOES HERE</h4>
+    <div class="col s6 valign-wrapper opt" id="opt-b">
+        <div id="ansB" class="ans"></div>
     </div>
 </div>
 <div class="row">
-    <div class="col s6 valign-wrapper" id="opt-1">
-        <h4 id="test"> ANSWER GOES HERE</h4>
+    <div class="col s6 valign-wrapper opt" id="opt-c">
+        <div id="ansC" class="ans"></div>
     </div>
-    <div class="col s6 valign-wrapper" id="opt-1">
-        <h4 id="test"> ANSWER GOES HERE</h4>
+    <div class="col s6 valign-wrapper opt" id="opt-d">
+        <div id="ansD" class="ans"></div>
     </div>
 </div>
+</form>
 <h1>g</h1>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/user-game.js"></script>
