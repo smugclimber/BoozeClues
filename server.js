@@ -84,23 +84,12 @@ var io = require('socket.io')(server);
 //Routes
 //====================================
 var routes = require("./routes/html-routes.js");
-
-var user = require("./routes/user-routes.js");
-
-var appRoute = require("./routes/app-routes.js")
-
-
-
-// require("./routes/html-routes.js")(app);
-
-// Root get route
-// app.get("/", function(req, res) {
-// console.log("hello");
-//   });
+var user = require("./routes/user-routes.js")
+var apiRoutes = require("./routes/api-routes.js");
 
 app.use("/", routes);
 app.use("/", user);
-// app.use("/", appRoute)
+app.use("/api", apiRoutes);
 
 //Setup sequelize
 //====================================
@@ -112,3 +101,61 @@ db.sequelize.sync().then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+//Socket events
+//====================================
+io.on('connection', function (socket) {
+
+//Onclick countdown broadcast
+  var count = 21;
+  var counter;
+  function timer () {
+  	count = count - 1;
+  	if(count < 0){
+  		clearInterval(counter);
+  		count = 21;
+      io.sockets.emit('times up', {done: true});
+  		return;
+  	}
+  	io.sockets.emit('countdown', {left: count});
+  }
+
+//Array shuffle
+function shuffle(array, cb) {
+  var currentIndex = array.length; 
+  var temporaryValue;
+  var randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  cb(array);
+}
+
+//When receive start timer event
+  socket.on('start timer', function(data){
+  	if(data.start){
+  		counter = setInterval(timer, 1000);
+  	}
+  });
+
+//When receive push question event
+  socket.on('push question', function(data){
+    data.q.incorrect_answers.push(data.q.correct_answer);
+    shuffle(data.q.incorrect_answers, function(array){
+      data.q.incorrect_answers = array;
+      io.sockets.emit('do the thing', data);
+    });
+  });
+
+});
+
