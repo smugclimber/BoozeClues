@@ -21,12 +21,13 @@ var db = require("../models");
     });
   });
 
-  app.get("/api/users/:id", function(req, res) {
-     // Find one Author with the id in req.params.id and return them to the user with res.json
-    db.User.findOne({
-      where: {
-        id: req.params.id
-      }
+  app.get("/api/curruser", function(req, res) {
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
+    db.User.findAll({
+      where: query
     }).then(function(dbUser) {
       res.json(dbUser);
     });
