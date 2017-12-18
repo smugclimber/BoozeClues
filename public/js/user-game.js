@@ -4,6 +4,10 @@ var passport = require("../config/passport");
 var username = passport.username;
 
 $(document).ready(function() {
+<<<<<<< HEAD
+  
+}
+=======
   // Getting references to the name inout and author container, as well as the table body
   var nameInput = $("#author-name");
   var authorList = $("tbody");
@@ -162,3 +166,4 @@ $(document).ready(function() {
 
 
 
+>>>>>>> 737efdea83f34b45a8ed8dc242ca840e77ec9b59

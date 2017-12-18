@@ -9,20 +9,18 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Team.associate = function(models) {
-    Team.belongsToMany(models.User, {
+    Team.belongsToMany(models.Users, {
       foreignKey: {
         allowNull: false
       },
       through: 'TeamUsers'
     })
-  };
 
-  Team.associate = function(models) {
-    // Associating Score with Team
-    // When an Team is deleted, also delete any associated Scores
     Team.hasOne(models.Score, {
       onDelete: "cascade"
     });
+
+    Team.belongsTo(models.Game)
   };
 
   return Team;
