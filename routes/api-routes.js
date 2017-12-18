@@ -70,19 +70,4 @@ function getQs(req, cb){
     });
   });
 
-<<<<<<< HEAD
-  app.get("/api/curruser", function(req, res) {
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-    db.User.findAll({
-      where: query
-    }).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-=======
 module.exports = router;
->>>>>>> 737efdea83f34b45a8ed8dc242ca840e77ec9b59
-
