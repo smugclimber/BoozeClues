@@ -40,6 +40,16 @@ function getQs(req, cb){
 		});
 	});
 
+//API call to get question categories
+	router.get("/cats", function(req,res){
+		request("https://opentdb.com/api_category.php", function(err, resp, body){
+			if(err) console.log(err);
+			body = JSON.parse(body);
+			console.log(body);
+			res.json(body);
+		});
+	});
+
 //Update team score after every question.
 	router.put("/user_game", function(req, res){
 		console.log(req.body);
