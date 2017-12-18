@@ -24,14 +24,16 @@ var router = express.Router();
       //   });
         // Register user
         router.post("/user", function(req, res) {
-          var id =req.body.gameId;
+          var name  =req.body.name;
+          var gameId =req.body.gameId;
           // var password2 = req.body.password2;
           // console.log(req)
           // console.log(req.body)
 
         // Validation
 
-        req.checkBody('id','gameId is required').notEmpty();
+        req.checkBody('name','Name is required').notEmpty();
+         req.checkBody('gameId','gameId is required').notEmpty();
         var errors = req.validationErrors();
         if(errors.length > 0){
           console.log('===============there was an error======>')
@@ -39,7 +41,11 @@ var router = express.Router();
             errors:errors
           })
           // req.flash('success_msg', 'You are registered and can now login')
-          
+          }else {
+           db.Team.create(req.body).then(function(err,team) {
+            if(err) throw err;
+             console.log("teamname and id:"+ team);
+            });
           }
 });
 
