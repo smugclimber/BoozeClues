@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   },
   {
-  
+
   },
 {
   dialect: 'mysql'
@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
 User.prototype.validPassword = function(password){
         console.log("here")
           return bcrypt.compareSync(password, this.password)
-         
+
       }
 User.prototype.hashPassword = function() {
   this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
@@ -44,14 +44,14 @@ User.prototype.hashPassword = function() {
 
 User.hook('beforeCreate', function(user){
   user.hashPassword();
- 
+
 })
 User.associate = function(models) {
   // Associating User with Games
   // When an User is deleted, also delete any associated Games
-  User.hasMany(models.Game, {
-    onDelete: "cascade"
-  });
+    User.belongsToMany(models.Team, {
+      through: 'TeamUsers'
+    })
   // User.belongsToMany(models.Team, {
   //   foreignKey: {
   //     allowNull: false
@@ -61,5 +61,3 @@ User.associate = function(models) {
 };
 return User
 };
-
-

@@ -10,9 +10,6 @@ module.exports = function(sequelize, DataTypes) {
 
   Team.associate = function(models) {
     Team.belongsToMany(models.Users, {
-      foreignKey: {
-        allowNull: false
-      },
       through: 'TeamUsers'
     })
 
@@ -25,4 +22,3 @@ module.exports = function(sequelize, DataTypes) {
 
   return Team;
 };
-
