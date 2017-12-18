@@ -100,14 +100,14 @@ var appRoute = require("./routes/app-routes.js")
 
 app.use("/", routes);
 app.use("/", user);
-// app.use("/", appRoute)
+app.use("/", appRoute)
 
 //Setup sequelize
 //====================================
 var db = require("./models");
 
 //Sync models and start server
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force:true}).then(function() {
   server.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
