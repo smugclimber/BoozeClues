@@ -5,25 +5,26 @@ var db = require("../models");
 
 passport.use(new LocalStrategy(
   {
-    usernameField: "email"
+    usernameField: "username",
+    passReqToCallback : true
   },
-  function(email, password, done) {
+  function(req, username, password, done) {
+    console.log(password)
     db.Users.findOne({
       where: {
-        email: email
+        username: username
       }
     }).then(function(dbUser) {
       if (!dbUser) {
-        return done(null, false, {
-          message: "Incorrect email."
-        });
+        return done(null, false, req.flash("success_msg", "Username invalid"));
       }
-      else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
+     
+      if (dbUser && dbUser.validPassword(password)) {
+        console.log("logging in")
+        console.log(dbUser.validPassword(password))
+        return done(null, dbUser, req.flash("success_msg", "login successful"));
       }
-      return done(null, dbUser);
+      return done(null, false, req.flash("success_msg", "Password Invalid"));
     });
   }
 ));

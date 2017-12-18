@@ -1,9 +1,9 @@
 $(document).ready(function() {
-  var signUpForm = $("form.signup");
+  var loginForm = $("form.login");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
-  signUpForm.on("submit", function(event) {
+  loginForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
@@ -13,22 +13,21 @@ $(document).ready(function() {
     if (!userData.email || !userData.password) {
       return;
     }
-    signUpUser(userData.email, userData.password);
+
+    loginUser(userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
   });
 
-  function signUpUser(email, password) {
-    $.post("/api/signup", {
+  function loginUser(email, password) {
+    $.post("/api/login", {
       email: email,
       password: password
     }).then(function(data) {
       window.location.replace(data);
-    }).catch(handleLoginErr);
+    }).catch(function(err) {
+      console.log(err);
+    });
   }
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-  }
 });

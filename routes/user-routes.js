@@ -17,9 +17,8 @@ var router = express.Router();
           var email =req.body.email;
           var username =req.body.username;
           var password =req.body.password;
-          // var player = req.body.player;
           var access =req.body.access
-          var password2 = req.body.password2;
+          // var password2 = req.body.password2;
           // console.log(req)
           // console.log(req.body)
 
@@ -30,6 +29,7 @@ var router = express.Router();
         req.checkBody('email','Email is not valid').isEmail();
         req.checkBody('username','Username is required').notEmpty();
         req.checkBody('password','password is required').notEmpty();
+        req.checkBody('access','access is required').notEmpty();
         req.checkBody('password2','paswords do not match').equals(req.body.password);
 
         var errors = req.validationErrors();
@@ -38,19 +38,42 @@ var router = express.Router();
           res.render('register',{
             errors:errors
           })
-          req.flash('succes_msg', 'You are registered and can now login')
-
+          // req.flash('success_msg', 'You are registered and can now login')
+          
           }else {
-           db.Users.create(req.body).then(function(user) {
-             console.log('=================>', user)
-              res.redirect("/user");
-            }).catch(function(err) {
-              console.log(err);
-              res.json(err);
-            });
+           db.Users.create(req.body).then(function(err,user) {
+            if(err) throw err;
+             console.log(user);   
+            }); 
+            // .catch(function(err) {
+            //   console.log(err);
+            //   res.json(err);
+
+            // });
+           req.flash('success_msg', 'You are registered and can now login')
+          res.redirect("/login");
+
+           // .catch(function(err) {
+           //    console.log(err);
+           //    res.json(err);
+           //  });
           }
+});
+
+  
+        router.post('/login',
+          passport.authenticate('local', {successRedirect:'/bargame', failureRedirect:'/login', failureFlash: true}),
+          function(req, res){
+            req.flash('success_msg', "Login Successful")
+            res.redirect('/bargame');
+
           });
-
-
+      router.get('/logout', function(req, res){
+        req.logout();
+        req.flash('success_msg', 'you are logged out');
+        res.redirect('/login');
+      });
+       
+      
 
 module.exports = router;
