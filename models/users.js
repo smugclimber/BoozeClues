@@ -26,62 +26,43 @@ module.exports = function(sequelize, DataTypes) {
     }
   },
   {
-    classMethods: {
-      validPassword: function(password, passwd, done, user){
-        bcrypt.compare(password, passwd, function(err, isMatch){
-          if(err) console.log(err)
-          if(isMatch){
-            return done(null,user)
-          }else{
-            return done(null, false)
-          }
-        });
-      }
-    }
+  
   },
 {
   dialect: 'mysql'
+});
+User.prototype.validPassword = function(password){
+        console.log("here")
+          return bcrypt.compareSync(password, this.password)
+         
+      }
+User.prototype.hashPassword = function() {
+  this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
+
 }
-);
-User.hook('beforeCreate', function(user, fn){
-  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
-     bcrypt.hash(user.password, salt, function(err, hash){
-      user.password = hash;
-    });
-  });
+
+User.hook('beforeCreate', function(user){
+  user.hashPassword();
+ 
 })
 User.associate = function(models) {
   // Associating User with Games
   // When an User is deleted, also delete any associated Games
   User.hasMany(models.Game, {
     onDelete: "cascade"
-  })
-  };
-
-  User.associate = function(models) {
-    User.belongsToMany(models.Team, {
-      foreignKey: {
-        allowNull: false
-      },
-      through: 'TeamUsers'
-    })
-  };
-
+  });
+  // User.belongsToMany(models.Team, {
+  //   foreignKey: {
+  //     allowNull: false
+  //   },
+  //   through: 'UserTeams'
+  // })
+};
 return User
 
 };
-// };
-//   User.prototype.validPassword = function(password) {
-//     return bcrypt.compareSync(password, this.password);
-//   };
-//   User.hook("beforeCreate", function(user) {
-//     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-//   });
-//   return User;
-// };
 
 
 
 
-//   return User;
-// };
+

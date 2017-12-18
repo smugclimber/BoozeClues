@@ -59,6 +59,16 @@ var router = express.Router();
            //  });
           }
 });
+
+  
+        router.post('/login',
+          passport.authenticate('local', {successRedirect:'/bargame', failureRedirect:'/login', failureFlash: true}),
+          function(req, res){
+            req.flash('success_msg', "Login Successful")
+            res.redirect('/bargame');
+
+          });
+      
        
       
 
