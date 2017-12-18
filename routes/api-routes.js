@@ -33,6 +33,29 @@ function getQs(req, cb){
 	}, 3000);
 }
 
+//API call to get questions
+	router.post("/qstn", function(req, res){
+		getQs(req, function(data){
+			res.json({questions: data});
+		});
+	});
+
+//Update team score after every question.
+	router.put("/user_game", function(req, res){
+		console.log(req.body);
+		db.Score.update({
+			num_corr: req.body.num_corr,
+			total_ques: req.body.total_ques,
+			score_val: req.body.score_val
+		}, {where: {
+			team_ID: req.body.teamID
+		}
+		}).then(function(result){
+			//do something with result
+			res.send(result);
+		});
+	});
+
 
 
   router.post("/register", function(req, res) {
@@ -90,11 +113,5 @@ function getQs(req, cb){
 //
 // };
 
-	//API call to get questions
-	router.post("/qstn", function(req, res){
-		getQs(req, function(data){
-			res.json({questions: data});
-		});
-	});
 
 module.exports = router;
