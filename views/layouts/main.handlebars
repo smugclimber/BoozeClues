@@ -39,6 +39,7 @@
 					<a href="/logout">Logout</a>
 				</li>
 				{{else}}
+
 				<li>
 					<a href="/login">Login</a>
 				</li>
@@ -75,7 +76,7 @@
 	</footer>
 	<script>
 		$(document).ready(function() {
-			$('.modal').modal();
+			$('.dropdown-button').dropdown('open');
 			// $(".button-collapse").sideNav();
 		});
 	</script>
