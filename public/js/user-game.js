@@ -1,11 +1,16 @@
 
+$(document).ready(function(){
+
+
+$("#joinTeam").click(function(){
+    $("#joinTeamSection").addClass("hide");
+});
+
+
+
   var socket = io.connect('http://localhost:8080');
-var passport = require("../config/passport");
+/*var passport = require("../config/passport");
 var username = passport.username;
-
-$(document).ready(function() {
-
-  
 
   // Getting references to the name inout and author container, as well as the table body
   var nameInput = $("#author-name");
@@ -19,7 +24,6 @@ $(document).ready(function() {
   // Getting the intiial list of Authors
   getUserStats();
 
-
   // Function for retrieving authors and getting them ready to be rendered to the page
   function getUserStats() {
     $.get("/api/users", function(data) {
@@ -30,7 +34,7 @@ $(document).ready(function() {
       renderAuthorList(rowsToAdd);
       nameInput.val("");
     });
-    
+*/
     //When receive timer event
   socket.on('countdown', function(time){
     //Set text of timer to time left
@@ -43,7 +47,7 @@ $(document).ready(function() {
   		$("#timer").css("background-color", "gold");
   	}
   	if(time.left <=5 ){
-  		$("#timer").css("background-color", "red");	
+  		$("#timer").css("background-color", "red");
   	}
     //Change text when time runs out
   	if(time.left === 0){
@@ -159,10 +163,6 @@ $(document).ready(function() {
     }
   });
 
-  }
 
-  
-
-
-
+  });
 
