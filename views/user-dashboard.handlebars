@@ -40,35 +40,33 @@
     </div>
 </div> <!-- End row -->
 
-<div class="row">
-    <div id="joinGameForm" class="col s12">
-        <h4 class="page-header center">Join a Game</h4>
-        <form method="post" action="/user/login">
+<div class="row center-align">
+  <div id="joinGameForm" class="col s12">
+    <h4 class="page-header center">Join a Game</h4>
+    <form method="post" action="/user">
 
+      <div class="input-field col 4">
+        <input id="name" type="text" class="validate" name="name">
+        <label>Enter a new Team Name</label>
+      </div>
 
-          <div class="input-field col 4">
-
-            <input type="text" class="validate">
-            <label>Enter a new Team Name</label>
+      <div class="row center-align">
+        <div class="col 4">
+          Enter a game ID:
+          <div class="input-field inline">
+            <input id="gameId" type="text" class="validate" name="gameId">
+            <label for="gameId" data-error="wrong" data-success="right">ID here!</label>
           </div>
+        </div>
+      </div>
 
-          <div class="row">
-                  <div class="col 4">
-                    Enter a game ID:
-                    <div class="input-field inline">
-                      <input id="gameCode" type="text" class="validate">
-                      <label for="gameCode" data-error="wrong" data-success="right">ID here!</label>
-                    </div>
-                  </div>
-                </div>
+      <!-- <hr /> -->
+      <div class="center">
+          <button type="submit" class="btn btn-default">Join Now</button>
+      </div>
 
-          <!-- <hr /> -->
-          <div class="center">
-              <button type="submit" class="btn btn-default">Join Now</button>
-          </div>
-
-        </form>
-    </div>
+    </form>
+  </div>
 </div>
 <!-- Custom Script -->
 <script src="js/user-dashboard.js" type="text/javascript"></script>
