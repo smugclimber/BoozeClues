@@ -2,7 +2,7 @@
 
   var socket = io();
 
-  
+
   console.log(gameID);
   socket.emit("join room", {room: gameID});
 
@@ -11,7 +11,7 @@
   	$("#time").text(time.left);
   	if(time.left <=20){
         $("#thead").removeClass("hide");
-  		$("#timer").css("background-color", "green");
+  		$("#timer").css("background-color", "#36B45E");
   	}
   	if(time.left <=10 ){
   		$("#timer").css("background-color", "gold");
@@ -98,11 +98,11 @@
       //Display answer A
       $("#ansA").html("<p>"+trivia.q.incorrect_answers[0]+"</p>");
       //Reset background color to ______
-      $("#ansA").css({"background-color": "blue"});
+      $("#ansA").css({"background-color": "#4F93BF"});
       //Display answer B
       $("#ansB").html("<p>"+trivia.q.incorrect_answers[1]+"</p>");
       //Reset background color to ______
-      $("#ansB").css("background-color", "blue");
+      $("#ansB").css("background-color", "#4F93BF");
       //Display answer C
       $("#ansC").html("<p>"+trivia.q.incorrect_answers[2]+"</p>");
       //Reset background color to ______
@@ -119,11 +119,11 @@
       //Display true
       $("#ansA").html("<p>True</p>");
       //Reset background color to ______
-      $("#ansA").css("background-color", "blue");
+      $("#ansA").css("background-color", "#4F93BF");
       //Display false
       $("#ansB").html("<p>False</p>");
       //Reset background color to ______
-      $("#ansB").css("background-color", "blue");
+      $("#ansB").css("background-color", "#4F93BF");
       //Clear div
       $("#ansC").html("");
       //Grey out background
@@ -153,16 +153,16 @@
     //Change background of right answer to green
     switch(gameQs[question-1].correct_answer) {
       case $("#ansA").text():
-        $("#ansA").css("background-color", "green");
+        $("#ansA").css("background-color", "#36B45E");
         break;
       case $("#ansB").text():
-        $("#ansB").css("background-color", "green");
+        $("#ansB").css("background-color", "#36B45E");
         break;
       case $("#ansC").text():
-        $("#ansC").css("background-color", "green");
+        $("#ansC").css("background-color", "#36B45E");
         break;
       case $("#ansD").text():
-        $("#ansD").css("background-color", "green");
+        $("#ansD").css("background-color", "#36B45E");
         break;
     }
   });

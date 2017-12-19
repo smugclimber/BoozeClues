@@ -19,7 +19,7 @@ $("#joinTeam").click(function(){
     //Change background color based on amount of time left
   	if(time.left <=20){
         $("#thead").removeClass("hide");
-  		$("#timer").css("background-color", "green");
+  		$("#timer").css("background-color", "#36B45E");
   	}
   	if(time.left <= 10 ){
   		$("#timer").css("background-color", "gold");
@@ -48,17 +48,17 @@ $("#joinTeam").click(function(){
     $("#diff").text(trivia.q.difficulty.charAt(0).toUpperCase()+trivia.q.difficulty.slice(1));
     //Post question text
     $("#qstn").html("<h4>"+trivia.q.question+"</h4>");
-    $("#qstn").addClass("question")
+    $("#qstn").addClass("question");
     //If the question is multiple choice
     if(trivia.q.type === "multiple"){
       //Insert radio button and label for A
       $("#ansA").html("<input type='radio' name='answer' id='answrA' value='"+trivia.q.incorrect_answers[0]+"'><label for='answrA'>"+trivia.q.incorrect_answers[0]+"</label>");
       //Reset background color to _______
-      $("#ansA").css("background-color", "blue");
+      $("#ansA").css("background-color", "#4F93BF");
       //Insert radio button and label for B
       $("#ansB").html("<input type='radio' name='answer' id='answrB' value='"+trivia.q.incorrect_answers[1]+"'><label for='answrB'>"+trivia.q.incorrect_answers[1]+"</label>");
       //Reset background color to _______
-      $("#ansB").css("background-color", "blue");
+      $("#ansB").css("background-color", "#4F93BF");
       //Insert radio button and label for C
       $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrC'>"+trivia.q.incorrect_answers[2]+"</label>");
       //Reset background color to _______
@@ -75,11 +75,11 @@ $("#joinTeam").click(function(){
       //Insert radio button for True in A
       $("#ansA").html("<input type='radio' name='answer' id='answrA' value='True'><label for='answrA'>True</label>");
       //Reset background color to _______
-      $("#ansA").css("background-color", "blue");
+      $("#ansA").css("background-color", "#4F93BF");
       //Insert radio button for False in B
       $("#ansB").html("<input type='radio' name='answer' id='answrB' value='False'><label for='answrB'>False</label>");
       //Reset background color to _______
-      $("#ansB").css("background-color", "blue");
+      $("#ansB").css("background-color", "#4F93BF");
       //Empty C
       $("#ansC").html("");
       //Grey out background
@@ -125,20 +125,19 @@ var qsTotal = 0;
 
     switch(answer) {
       case $("#ansA").text():
-        $("#ansA").css("background-color", "green");
+        $("#ansA").css("background-color", "#36B45E");
         break;
       case $("#ansB").text():
-        $("#ansB").css("background-color", "green");
+        $("#ansB").css("background-color", "#36B45E");
         break;
       case $("#ansC").text():
-        $("#ansC").css("background-color", "green");
+        $("#ansC").css("background-color", "#36B45E");
         break;
       case $("#ansD").text():
-        $("#ansD").css("background-color", "green");
+        $("#ansD").css("background-color", "#36B45E");
         break;
     }
   });
 
 
   });
-

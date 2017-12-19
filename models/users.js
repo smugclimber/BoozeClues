@@ -1,5 +1,5 @@
 
-//A Game has many Teams and a Team has many Users
+//A Game has many Users and a User has one game
 var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
@@ -37,6 +37,15 @@ module.exports = function(sequelize, DataTypes) {
 {
   dialect: 'mysql'
 });
+
+User.associate = function(models) {
+    User.belongsTo(models.Game, {
+      foreignKey: {
+        allowNull: false
+      }
+  });
+};
+
 User.prototype.validPassword = function(password){
         console.log("here")
           return bcrypt.compareSync(password, this.password)
@@ -51,18 +60,5 @@ User.hook('beforeCreate', function(user){
   user.hashPassword();
 
 })
-User.associate = function(models) {
-  // Associating User with Games
-  // When an User is deleted, also delete any associated Games
-    User.belongsToMany(models.Team, {
-       through: 'TeamUsers'
-    })
-  // User.belongsToMany(models.Team, {
-  //   foreignKey: {
-  //     allowNull: false
-  //   },
-  //   through: 'UserTeams'
-  // })
-};
 return User
 };

@@ -1,7 +1,7 @@
 <div class="row">
     <div class='col s12 m4 container center-align'>
         <div class='center-align'>
-            <i id='userImage' class=" material-icons ">account_circle</i>
+            <i id='userImage' class="material-icons ">account_circle</i>
         </div>
     </div>
     <div class="col s12 m8 container">
@@ -45,20 +45,13 @@
     <h4 class="page-header center">Join a Game</h4>
     <form method="post" action="/user">
 
-      <div class="input-field col 4">
-        <input id="name" type="text" class="validate" name="name">
-        <label>Enter a new Team Name</label>
-      </div>
-
-      <div class="row center-align">
-        <div class="col 4">
-          Enter a game ID:
-          <div class="input-field inline">
-            <input id="GameId" type="text" class="validate" name="GameId">
-            <label for="GameId" data-error="wrong" data-success="right">ID here!</label>
-          </div>
+        <div class="row">
+                <div class="input-field col s12">
+                  <input id="GameId" type="text" class="validate" name="GameId">
+                  <label for="GameId" data-error="wrong" data-success="right">Enter Game Id</label>
+                </div>
         </div>
-      </div>
+
 
       <!-- <hr /> -->
       <div class="center">
