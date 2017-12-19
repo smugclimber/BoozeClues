@@ -2,7 +2,12 @@
 //A Game has many Teams and a Team has many Users
 var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("Users", {
+  var User = sequelize.define("User", {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -50,7 +55,7 @@ User.associate = function(models) {
   // Associating User with Games
   // When an User is deleted, also delete any associated Games
     User.belongsToMany(models.Team, {
-      through: 'TeamUsers'
+       through: 'TeamUsers'
     })
   // User.belongsToMany(models.Team, {
   //   foreignKey: {
