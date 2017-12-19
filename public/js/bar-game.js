@@ -17,6 +17,8 @@
   	}
   });
 
+  var gameData = JSON.parse(localStorage["gameData"]);
+
   //Send get questions
   var gameQs = [];
   //On button click
@@ -25,14 +27,7 @@
     $("#getQs").addClass("hide");
     //Show spinner
     $("#spinner").addClass("active");
-    //Hardcoded game data from game creation form
-  	var gameData = {
-  		rounds: 3,
-  		qstnsPerRound: 5,
-  		r0cat: "9",
-  		r1cat: "20",
-  		r2cat: "27"
-  	};
+  	console.log(gameData);
     //Post request to api-call
   	$.post("/api/qstn", gameData, function(response, status){
   		 console.log(response.questions);

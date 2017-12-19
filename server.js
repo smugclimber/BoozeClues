@@ -150,6 +150,11 @@ function shuffle(array, cb) {
   	}
   });
 
+  socket.on("gameData", function(data){
+    console.log(data);
+    setTimeout(socket.emit("returnData", data), 1000);
+  });
+
 //When receive push question event
   socket.on('push question', function(data){
     data.q.incorrect_answers.push(data.q.correct_answer);
