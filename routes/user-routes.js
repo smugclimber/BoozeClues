@@ -76,17 +76,6 @@ var router = express.Router();
       });
 
       // Get UserId
-<<<<<<< HEAD
-    //      router.get("/all", isAuthenticated, function (req, res) {
-    //         db.User.findAll({
-    //         where: {
-    //           UserId: req.user.id
-    //         }
-    //     });
-    // });
-
-
-=======
         //  router.get("/all", isAuthenticated, function (req, res) {
         //     db.User.findAll({
         //     where: {
@@ -94,6 +83,5 @@ var router = express.Router();
         //     }
         //   })
         // });
->>>>>>> 162b18be57486ad2e94fbd183a65bc9b98e49246
 
 module.exports = router;
