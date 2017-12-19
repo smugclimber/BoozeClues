@@ -6,7 +6,7 @@ var router = express.Router();
 
 function getQs(req, cb){
 	console.log("function running");
-	var url = "https://opentdb.com/api.php?amount="+ req.body.qstnsPerRound;
+	var url = "https://opentdb.com/api.php?amount="+ req.body.qsPerRound;
 	var game = [];
 	var roundCat;
 	var i = 0;
@@ -37,6 +37,15 @@ function getQs(req, cb){
 	router.post("/qstn", function(req, res){
 		getQs(req, function(data){
 			res.json({questions: data});
+		});
+	});
+
+//API call to get question categories
+	router.get("/cats", function(req,res){
+		request("https://opentdb.com/api_category.php", function(err, resp, body){
+			if(err) console.log(err);
+			body = JSON.parse(body);
+			res.json(body);
 		});
 	});
 
