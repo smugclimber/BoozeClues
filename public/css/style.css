@@ -1,23 +1,39 @@
 body {
-    background-color: white;
+    background-color: #FBFCF9;
 }
-/* MAIN PAGE */
-#logoIcon {
+
+.spc{
+    margin-top: 5pt;
+}
+.nav-wrapper{
+    background-color: #DB504A;
+}
+
+/* USER DASH PAGE */
+/* For width smaller than 400px: */
+#userImage {
     padding-top: 25pt;
-    font-size: 150pt;
+    font-size: 80pt;
     color: fff;
     /* text-align: center; */
 }
+/* For width 400px and larger: */
+@media only screen and (min-width: 400px) {
+    #userImage {
+        padding-top: 25pt;
+        font-size: 150pt;
+        color: fff;
+        /* text-align: center; */
+    }
+}
+
 
 #signUpButton {
     background-color: light-green;
     color: white;
 }
 
-#sbtn{
-    background-color: ;
-    border-radius: 25pt;
-}
+
 #sbtn:hover{
     background-color: red;
 }
@@ -31,18 +47,32 @@ body {
 }
 /* USER GAME SCREEN */
 .opt{
-    text-align: auto;
     height: 80pt;
+    width: 100%;
     color: white;
-    background-color: blue;
+    border-radius: 5pt;
+    /* border: solid 10px red; */
+    padding-left: 15px;
+    background-color: green;
+    /* column-gap: 40px; */
+}
+
+.opt label{
+    color: white;
+}
+
+.custom{
+    padding: 0 30pt 0 30pt;
 }
 
 #test{
     text-align: center;
 }
-
+/* GAME PAGE */
 #timer {
-	height: 20vh;
+    line-height: 15vh;
+	height: 15vh;
+    border-radius: 5pt;
 	background-color: green;
 	font-size: 2.5em;
 	font-weight: bold;
@@ -50,9 +80,81 @@ body {
 	text-align: center;
 	transition: background-color 0.5s ease;
 	margin: 0 auto;
+
 }
 
+#inGameStats{
+    height: 10vh;
+}
+
+#stats{
+    border-radius: 5pt 5pt 0 0;
+}
+#scores{
+    text-align: center;
+    height: 10vh;
+    border-radius: 0 0 5pt 5pt;
+    line-height: 10vh;
+}
+#ranks{
+    text-align: center;
+    line-height: 10vh;
+    height: 10vh;
+    border-radius: 0 0 5pt 5pt;
+}
+
+.tabs {
+    height: 5vh;
+    background-color: blue;
+}
+
+.info{
+
+}
+
+.qstat{
+    line-height: 0pt;
+    height: 25pt;
+    border-radius: 5pt 5pt 0 0;
+    background-color: gray;
+    background-color: red;
+    color: blue;
+    border-bottom: 1px solid black;
+}
+
+.bottomRow{
+    line-height: 0pt;
+    height: 25pt;
+    border-radius: 0 0 5pt 5pt;
+    margin-top: 0px;
+    background-color: white;
+}
+
+.question{
+    color: green;
+
+}
+/* BARGAME */
+
+.getQ{
+    border-radius: 5pt;
+    width: 100%;
+    height: 15vh;
+background-color: red
+}
+.sendQ{
+    width: 100%;
+    height: 15vh;
+    border-radius: 5pt;
+    background-color: Green;
+}
+.spin{
+    margin-top: 6vh;
+}
+
+
+
 label {
-	color: white;
+	/* color: white; */
 	font-size: 1.5rem;
 }

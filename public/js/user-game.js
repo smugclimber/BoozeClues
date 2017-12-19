@@ -41,6 +41,7 @@ var username = passport.username;
   	$("#time").text(time.left);
     //Change background color based on amount of time left
   	if(time.left <=20){
+        $("#thead").removeClass("hide");
   		$("#timer").css("background-color", "green");
   	}
   	if(time.left <= 10 ){
@@ -51,6 +52,7 @@ var username = passport.username;
   	}
     //Change text when time runs out
   	if(time.left === 0){
+        $("#thead").addClass("hide");
   		$("#time").text("Time's Up!");
   	}
   });
@@ -62,48 +64,51 @@ var username = passport.username;
     //Save correct answer to variable
     answer = trivia.q.correct_answer;
     //Post "Question # of #" to screen
-    $("#qstn_info").text("Question " + (trivia.number +1) + " of " + trivia.total);
+    $("#firstscreen").addClass("hide");
+    $("#info").removeClass("hide");
+    $("#qstn_info").text((trivia.number +1) + " / " + trivia.total);
     //Post Difficulty with capitalized first letter
-    $("#diff").text("Difficulty: "+ trivia.q.difficulty.charAt(0).toUpperCase()+trivia.q.difficulty.slice(1));
+    $("#diff").text(trivia.q.difficulty.charAt(0).toUpperCase()+trivia.q.difficulty.slice(1));
     //Post question text
     $("#qstn").html("<h4>"+trivia.q.question+"</h4>");
+    $("#qstn").addClass("question")
     //If the question is multiple choice
     if(trivia.q.type === "multiple"){
       //Insert radio button and label for A
       $("#ansA").html("<input type='radio' name='answer' id='answrA' value='"+trivia.q.incorrect_answers[0]+"'><label for='answrA'>"+trivia.q.incorrect_answers[0]+"</label>");
       //Reset background color to _______
-      $("#opt-a").css("background-color", "blue");
+      $("#ansA").css("background-color", "blue");
       //Insert radio button and label for B
       $("#ansB").html("<input type='radio' name='answer' id='answrB' value='"+trivia.q.incorrect_answers[1]+"'><label for='answrB'>"+trivia.q.incorrect_answers[1]+"</label>");
       //Reset background color to _______
-      $("#opt-b").css("background-color", "blue");
+      $("#ansB").css("background-color", "blue");
       //Insert radio button and label for C
       $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrC'>"+trivia.q.incorrect_answers[2]+"</label>");
       //Reset background color to _______
-      $("#opt-c").css("background-color", "blue");
+      $("#ansC").css("background-color", "blue");
       //Insert radio button and label for D
       $("#ansD").html("<input type='radio' name='answer' id='answrD' value='"+trivia.q.incorrect_answers[3]+"'><label for='answrD'>"+trivia.q.incorrect_answers[3]+"</label>");
       //Reset background color to _______
-      $("#opt-d").css("background-color", "blue");
+      $("#ansD").css("background-color", "blue");
     }
     //If the question is true or false
     if(trivia.q.type === "boolean"){
       //Insert radio button for True in A
       $("#ansA").html("<input type='radio' name='answer' id='answrA' value='True'><label for='answrA'>True</label>");
       //Reset background color to _______
-      $("#opt-a").css("background-color", "blue");
+      $("#ansA").css("background-color", "blue");
       //Insert radio button for False in B
       $("#ansB").html("<input type='radio' name='answer' id='answrB' value='False'><label for='answrB'>False</label>");
       //Reset background color to _______
-      $("#opt-b").css("background-color", "blue");
+      $("#ansB").css("background-color", "blue");
       //Empty C
       $("#ansC").html("");
       //Grey out background
-      $("#opt-c").css("background-color", "grey");
+      $("#ansC").addClass("hide");
       //Empty D
       $("#ansD").html("");
       //Grey out background
-      $("#opt-d").css("background-color", "grey");
+      $("#ansD").addClass("hide");
     }
     //Change point value based on question difficulty
     if(trivia.q.difficulty === "hard"){
@@ -115,7 +120,7 @@ var username = passport.username;
     else {
       points = 10;
     }
-    $("#points").text("Points: "+ points);
+    $("#points").text(points);
   });
 
   var dbInput;
@@ -149,16 +154,16 @@ var username = passport.username;
     //Change background color of correct answer to green
     switch(answer) {
       case $("#ansA").text():
-        $("#opt-a").css("background-color", "green");
+        $("#ansA").css("background-color", "green");
         break;
       case $("#ansB").text():
-        $("#opt-b").css("background-color", "green");
+        $("#ansB").css("background-color", "green");
         break;
       case $("#ansC").text():
-        $("#opt-c").css("background-color", "green");
+        $("#ansC").css("background-color", "green");
         break;
       case $("#ansD").text():
-        $("#opt-d").css("background-color", "green");
+        $("#ansD").css("background-color", "green");
         break;
     }
   });

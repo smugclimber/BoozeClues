@@ -122,7 +122,7 @@ io.on('connection', function (socket) {
 
 //Array shuffle
 function shuffle(array, cb) {
-  var currentIndex = array.length; 
+  var currentIndex = array.length;
   var temporaryValue;
   var randomIndex;
 
@@ -158,4 +158,3 @@ function shuffle(array, cb) {
   });
 
 });
-

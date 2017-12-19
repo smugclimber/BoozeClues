@@ -1,81 +1,108 @@
-<div class="row "><!--Timer and stats-->
+<div class="row spc">
+    <!--Timer and stats-->
     <div class=" col s8">
-       <div id="nextQuestion" class="center-align">
-            <button class="btn" id="getQs">Get Questions</button>
-            <button class="btn hide" id="nxtQ">Send Question</button>
-            <div id="spinner" class="preloader-wrapper">
+        <div id="nextQuestion" class="center-align ">
+            <button class="btn getQ" id="getQs">Get Questions</button>
+
+            <button class="btn hide sendQ" id="nxtQ">Send Question</button>
+
+            <div id="spinner" class="preloader-wrapper spin hide">
                 <div class="spinner-layer spinner-yellow-only">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                        <div class="circle"></div>
-                    </div><div class="circle-clipper right">
+                    <!-- <div class="circle-clipper left">
+                    </div> -->
+                    <!-- <div class="gap-patch">
+                    <div class="circle"></div>
+                    </div> -->
+                    <div class="circle-clipper right">
                         <div class="circle"></div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-    <div id="timer" class=" col s4">
-        <h3 id="time"></h3>
+    <div id="timer" class="col s4">
+        <h5 id="thead">Timer</h5>
+        <h4 id="time"></h4>
     </div>
-</div><!--End Timer and stats-->
-
-<div class="row">
-    <div class="col s4">
-        <p id="qstn_info"></p>
-    </div>
-    <div class="col s4">
-        <p id="diff"></p>
-    </div>
-    <div class="col s4">
-        <p id="points"></p>
-    </div
 </div>
 
-<div class="row">
+
+<!-- Display question -->
+<div class="row center">
     <div class="col s12" id="qstn">
     </div>
 </div>
 
-<!-- ANSWERS DISPLAY -->
-<div class="row">
-    <div class="col s6 valign-wrapper opt" id="opt-a">
-        <div id="ansA" class="ans"></div>
+<!-- Information Panel -->
+<div class="row center">
+    <div class="col s4 qstat topRow">
+        <p>
+            Question
+        </p>
     </div>
-    <div class="col s6 valign-wrapper opt" id="opt-b">
-        <div id="ansB" class="ans"></div>
+    <div class="col s4 qstat">
+        <p>
+            Difficulty
+        </p>
+    </div>
+    <div class="col s4 qstat">
+        <p>
+            Points
+        </p>
+    </div>
+    <div class="col s4 bottomRow">
+        <p id="qstn_info"></p>
+    </div>
+    <div class="col s4 bottomRow">
+        <p id="diff"></p>
+    </div>
+    <div class="col s4 bottomRow">
+        <p id="points"></p>
     </div>
 </div>
-<div class="row">
-    <div class="col s6 valign-wrapper opt" id="opt-c">
-        <div id="ansC" class="ans"></div>
+
+<!-- ANSWERS DISPLAY -->
+<div class="row ">
+    <div class="col s6" id="opt-a">
+        <div id="ansA" class="ans valign-wrapper opt center"></div>
     </div>
-    <div class="col s6 valign-wrapper opt" id="opt-d">
-        <div id="ansD" class="ans"></div>
+    <div class="col s6" id="opt-b">
+        <div id="ansB" class="ans  valign-wrapper opt"></div>
+    </div>
+</div>
+<div class="row center">
+    <div class="col s6" id="opt-c">
+        <div id="ansC" class="ans  valign-wrapper opt"></div>
+    </div>
+    <div class="col s6" id="opt-d">
+        <div id="ansD" class="ans  valign-wrapper opt"></div>
     </div>
 </div>
 
 <!--Team scores and ranks -->
-<table>
-  <thead>
-    <tr>
-        <th>Place</th>
-        <th>Team name</th>
-    </tr>
-  </thead>
+<div class="container custom">
+    <table>
+        <thead>
+            <tr>
+                <th>Place</th>
+                <th>Team name</th>
+            </tr>
+        </thead>
 
-  <tbody>
-    <tr>
-      <td>1st</td>
-      <td>Eclair</td>
-    </tr>
-    <tr>
-      <td>2nd</td>
-      <td>Jellybean</td>
-    </tr>
+        <tbody>
+            <tr>
+                <td>1st</td>
+                <td>Eclair</td>
+            </tr>
+            <tr>
+                <td>2nd</td>
+                <td>Jellybean</td>
+            </tr>
 
-  </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/bar-game.js"></script>
