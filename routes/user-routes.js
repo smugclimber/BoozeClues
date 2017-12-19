@@ -65,9 +65,10 @@ var router = express.Router();
           passport.authenticate('local', {successRedirect:'/user-dashboard', failureRedirect:'/login', failureFlash: true}),
           function(req, res){
             req.flash('success_msg', "Login Successful")
+            console.log("user login res:" + res);
             res.redirect('/user-dashboard');
-
-          });
+        });
+        
       router.get('/logout', function(req, res){
         req.logout();
         req.flash('success_msg', 'you are logged out');
