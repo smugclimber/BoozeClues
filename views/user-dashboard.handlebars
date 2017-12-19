@@ -44,22 +44,15 @@
   <div id="joinGameForm" class="col s12">
     <h4 class="page-header center">Join a Game</h4>
     <form method="post" action="/user">
-
-      <div class="input-field col 4">
-        <input id="name" type="text" class="validate" name="name">
-        <label>Enter a new Team Name</label>
-      </div>
-
       <div class="row center-align">
         <div class="col 4">
           Enter a game ID:
           <div class="input-field inline">
             <input id="GameId" type="text" class="validate" name="GameId">
-            <label for="GameId" data-error="wrong" data-success="right">ID here!</label>
+            <label for="GameId" data-error="wrong" data-success="right">Pick 1-4 please!</label>
           </div>
         </div>
       </div>
-
       <!-- <hr /> -->
       <div class="center">
           <button type="submit" class="btn btn-default" id="joinGame">Join Now</button>
