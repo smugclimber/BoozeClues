@@ -1,4 +1,10 @@
+  $(document).ready(function(){
+
   var socket = io.connect('http://localhost:8080');
+
+  
+  console.log(gameID);
+  socket.emit("join room", {room: gameID});
 
   //When receive timer event
   socket.on('countdown', function(time){
@@ -49,9 +55,9 @@
     $("#nxtQ").addClass("disabled");
     console.log(gameQs[question]);
     //Send question socket event
-    socket.emit('push question', {q: gameQs[question], number: question, total: gameQs.length});
+    socket.emit('push question', {q: gameQs[question], number: question, total: gameQs.length, room: gameID});
     //Start timer socket event
-    socket.emit('start timer', {start: true});
+    socket.emit('start timer', {room: gameID});
     //Iterate up the array by one
     question++;
   });
@@ -135,3 +141,4 @@
         break;
     }
   });
+});

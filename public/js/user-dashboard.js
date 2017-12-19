@@ -13,11 +13,14 @@ $(document).ready(function() {
   var authorContainer = $(".author-container");
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
-  $(document).on("submit", "#author-form", handleAuthorFormSubmit);
+  //$(document).on("submit", "#author-form", handleAuthorFormSubmit);
   $(document).on("click", ".delete-author", handleDeleteButtonPress);
 
   // Getting the intiial list of Authors
   getUserStats();
+
+  //User joins game "room"
+
 
   // Function for retrieving user stats and getting them ready to be rendered to the page
   function getUserStats(user) {

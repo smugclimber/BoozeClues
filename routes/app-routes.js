@@ -46,7 +46,7 @@ var router = express.Router();
         if(err) throw err;
         console.log("team info: "+ res);
         });
-        res.redirect("/usergame");
+        res.redirect("/usergame/"+GameId);
       }
     });
 

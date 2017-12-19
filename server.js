@@ -108,18 +108,22 @@ db.sequelize.sync().then(function() {
 //====================================
 io.on('connection', function (socket) {
 
+  socket.on("join room", function(data){
+    socket.join(data.room);
+  });
+
 //Onclick countdown broadcast
   var count = 21;
   var counter;
-  function timer () {
+  function timer(room) {
   	count = count - 1;
   	if(count < 0){
   		clearInterval(counter);
   		count = 21;
-      io.sockets.emit('times up', {done: true});
+      io.to(room).emit('times up', {done: true});
   		return;
   	}
-  	io.sockets.emit('countdown', {left: count});
+  	io.to(room).emit('countdown', {left: count});
   }
 
 //Array shuffle
@@ -145,22 +149,20 @@ function shuffle(array, cb) {
 
 //When receive start timer event
   socket.on('start timer', function(data){
-  	if(data.start){
-  		counter = setInterval(timer, 1000);
+  	if(data.room){
+  		counter = setInterval(function(){
+        timer(data.room);
+      }, 1000);
   	}
   });
 
-  socket.on("gameData", function(data){
-    console.log(data);
-    setTimeout(socket.emit("returnData", data), 1000);
-  });
 
 //When receive push question event
   socket.on('push question', function(data){
     data.q.incorrect_answers.push(data.q.correct_answer);
     shuffle(data.q.incorrect_answers, function(array){
       data.q.incorrect_answers = array;
-      io.sockets.emit('do the thing', data);
+      io.to(data.room).emit('do the thing', data);
     });
   });
 
