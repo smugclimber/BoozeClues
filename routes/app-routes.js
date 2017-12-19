@@ -37,16 +37,16 @@ var router = express.Router();
     var errors = req.validationErrors();
     if(errors.length > 0){
       console.log('===============there was an error======>')
-      res.render('user-game',{
+      res.render('/user-dashboard',{
         errors:errors
       })
-      // req.flash('success_msg', 'You are registered and can now login')
+      req.flash('error_msg', 'You failed!')
       }else {
-       db.Team.create(req.body).then(function(err,team) {
-        //if(err) throw err;
-        console.log("teamname and id:"+ team);
-         res.redirect("/usergame");
+       db.Team.create(req.body).then(function(res, err) {
+        if(err) throw err;
+        console.log("team info: "+ res);
         });
+        res.redirect("/usergame");
       }
     });
 
