@@ -58,7 +58,7 @@ var router = express.Router();
            //    res.json(err);
            //  });
           }
-});
+      });
 
 
         router.post('/login',
@@ -81,7 +81,7 @@ var router = express.Router();
             where: {
               UserId: req.user.id
             }
-
-
+          })
+        });
 
 module.exports = router;
