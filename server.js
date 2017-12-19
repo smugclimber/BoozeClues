@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var router = express.Router();
 var path = require("path");
-var cookieParser = require("cookies-Parser");
+var cookieParser = require("cookie-Parser");
 
 var expressValidator = require("express-Validator");
 var flash = require("connect-flash");
