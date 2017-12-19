@@ -27,12 +27,32 @@ var router = express.Router();
         if(!team) throw "error";
            db.User.findById(req.body.userId).then(function(user){
             user.setTeams([team]).then(function(){
-                res.redirect("/usergame");
+                res.redirect("/usergame/"+GameId);
             });
           })
       
         });
       }
     });
+
+    router.post("/game", function(req, res) {
+         var name = req.body.name;
+         // Validation
+         req.checkBody('name','Name is required').notEmpty();
+         var errors = req.validationErrors();
+         if(errors.length > 0){
+           console.log('there was an error');
+           res.render('bar-dashboard',{
+             errors:errors
+           });
+         }
+         else {
+            db.Game.create(req.body).then(function(game, err) {
+            		if(err) throw err;
+              console.log("game id: "+ game.id);
+              res.json(game);
+             });
+         }
+ 	});
 
 module.exports = router;
