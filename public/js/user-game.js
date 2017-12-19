@@ -63,10 +63,12 @@ $("#joinTeam").click(function(){
       $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrC'>"+trivia.q.incorrect_answers[2]+"</label>");
       //Reset background color to _______
       $("#ansC").css("background-color", "blue");
+      $("#ansC").removeClass("hide");
       //Insert radio button and label for D
       $("#ansD").html("<input type='radio' name='answer' id='answrD' value='"+trivia.q.incorrect_answers[3]+"'><label for='answrD'>"+trivia.q.incorrect_answers[3]+"</label>");
       //Reset background color to _______
       $("#ansD").css("background-color", "blue");
+      $("#ansD").removeClass("hide");
     }
     //If the question is true or false
     if(trivia.q.type === "boolean"){
@@ -99,36 +101,28 @@ $("#joinTeam").click(function(){
     }
     $("#points").text(points);
   });
-
-  var dbInput;
+var userScore = 0;
+var qsCorrect = 0;
+var qsTotal = 0;
   //When time expires
   socket.on('times up', function(){
     var userChoice = $('input[name=answer]:checked', '#userAnswer').val();
     //If user guessed correctly
     if(userChoice === answer){
       //Send obj with db update values
-      dbInput = {
-        num_corr: 'num_corr + 1',
-        total_ques: 'total_ques + 1',
-        score_val: 'score_val + '+ points,
-      };
+      userScore += points;
+      qsCorrect ++;
+      qsTotal ++;
+
     }
     //If wrong or no answer given
     else {
       //Update questions asked but nothing else
-      dbInput = {
-        total_ques: 'total_ques + 1'
-      };
+      qsTotal++;
     }
     //Put request to database
-    $.ajax({
-      type: 'PUT',
-      url: "/api/user_game",
-      data: dbInput
-    }).done(function(resp){
-      console.log(resp);
-    });
-    //Change background color of correct answer to green
+    $("#scores").text("Total Points: "+ userScore + " Number Correct: " + qsCorrect+ "/"+qsTotal);
+
     switch(answer) {
       case $("#ansA").text():
         $("#ansA").css("background-color", "green");

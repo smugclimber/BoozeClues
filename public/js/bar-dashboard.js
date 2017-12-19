@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var socket = io();
 
 	$.get("api/cats").done(function(response){
+		console.log(response);
 		var newOpt;
 		newOpt = $("<option></option>");
 		newOpt.attr("value", "0");

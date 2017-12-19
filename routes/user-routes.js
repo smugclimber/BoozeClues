@@ -51,7 +51,8 @@ var router = express.Router();
 
             // });
            req.flash('success_msg', 'You are registered and can now login')
-          res.redirect("/login");
+            res.redirect("/login");
+
 
            // .catch(function(err) {
            //    console.log(err);
@@ -64,9 +65,19 @@ var router = express.Router();
         router.post('/login',
           passport.authenticate('local', {successRedirect:'/user-dashboard', failureRedirect:'/login', failureFlash: true}),
           function(req, res){
+            console.log(req.body);
             req.flash('success_msg', "Login Successful")
             console.log("user login res:" + res);
             res.redirect('/user-dashboard');
+        });
+
+        router.post('/barlogin',
+          passport.authenticate('local', {successRedirect:'/bar-dashboard', failureRedirect:'/login', failureFlash: true}),
+          function(req, res){
+            console.log(req.body);
+            req.flash('success_msg', "Login Successful")
+            console.log("bar login res:" + res);
+            res.redirect('/bar-dashboard');
         });
 
       router.get('/logout', function(req, res){
@@ -76,7 +87,6 @@ var router = express.Router();
       });
 
       // Get UserId
-<<<<<<< HEAD
     //      router.get("/all", isAuthenticated, function (req, res) {
     //         db.User.findAll({
     //         where: {
@@ -85,15 +95,5 @@ var router = express.Router();
     //     });
     // });
 
-
-=======
-        //  router.get("/all", isAuthenticated, function (req, res) {
-        //     db.User.findAll({
-        //     where: {
-        //       UserId: req.user.id
-        //     }
-        //   })
-        // });
->>>>>>> 162b18be57486ad2e94fbd183a65bc9b98e49246
 
 module.exports = router;

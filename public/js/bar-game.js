@@ -25,7 +25,24 @@
   	}
   });
 
-  var gameData = JSON.parse(localStorage["gameData"]);
+  var gameData = {};
+  switch(gameID){
+    case 1:
+      gameData = {qsPerRound: 5, rounds: 3, r0cat: 0, r1cat: 0, r2cat: 0};
+      break;
+    case 2:
+      gameData = {qsPerRound: 2, rounds: 3, r0cat: 18, r1cat: 20, r2cat: 12};
+      break;
+    case 3:
+      gameData = {qsPerRound: 5, rounds: 3, r0cat: 14, r1cat: 26, r2cat: 13};
+      break;
+    case 4:
+      gameData = {qsPerRound: 5, rounds: 3, r0cat: 24, r1cat: 22, r2cat: 30};
+      break;
+    case 5:
+      gameData = {qsPerRound: 5, rounds: 3, r0cat: 31, r1cat: 29, r2cat: 18};
+      break;
+  }
 
   //Send get questions
   var gameQs = [];
@@ -90,10 +107,12 @@
       $("#ansC").html("<p>"+trivia.q.incorrect_answers[2]+"</p>");
       //Reset background color to ______
       $("#ansC").css("background-color", "blue");
+      $("#ansC").removeClass("hide");
       //Display answer D
       $("#ansD").html("<p>"+trivia.q.incorrect_answers[3]+"</p>");
       //Reset background color to ______
       $("#ansD").css("background-color", "blue");
+      $("#ansD").removeClass("hide");
     }
     //if True/False
     if(trivia.q.type === "boolean"){
