@@ -51,7 +51,6 @@ var router = express.Router();
     });
 
     router.post("/app/game", function(req, res) {
-    	console.log("Received post request");
         var name = req.body.name;
         // Validation
         req.checkBody('name','Name is required').notEmpty();
@@ -64,18 +63,13 @@ var router = express.Router();
           });
         }
         else {
-           db.Game.create({
-           		name: name
-           }).then(function(err,game) {
-            if(err) throw err;
-             console.log("game id:"+ game);
-             res.send(game);
-             //res.render('bar-game')
-            }).catch(function(err){
-            	console.log("Error: " + err);
+           db.Game.create(req.body).then(function(game, err) {
+           		if(err) throw err;
+             console.log("game id: "+ game.id);
+             res.redirect('/bargame/'+game.id);
             });
         }
-});
+	});
 
 
         // router.post('/user',
