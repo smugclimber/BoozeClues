@@ -2,7 +2,6 @@ SELECT * FROM users;
 SELECT * FROM games;
 SELECT * FROM teams;
 SELECT * FROM scores;
-SELECT * FROM userteams;
 SELECT * FROM teamusers;
 
 INSERT INTO users (name, username, email, password, access, createdAt, updatedAt)
@@ -17,5 +16,5 @@ VALUES ("Buttheads", '1000-01-01 00:00:00', '1000-01-01 00:00:00', 1), ("Putin o
 INSERT INTO scores (num_corr, total_ques, scor_val, game_vic, createdAt, updatedAt, TeamId)
 VALUES (4, 10, 40, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 1), (7, 10, 70, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 2), (10, 10, 100, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 4), (2, 10, 20, false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 5);
 
-INSERT INTO userteams (createdAt, updatedAt, undefined, TeamId)
-VALUES ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 1, 3), ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 2, 2), ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 3, 4);
+INSERT INTO teamusers (createdAt, updatedAt, UserID, TeamId)
+VALUES ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 1, 3), ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 2, 2), ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 3, 4), ('1000-01-01 00:00:00', '1000-01-01 00:00:00', 2, 3);

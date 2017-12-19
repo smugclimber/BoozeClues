@@ -41,7 +41,7 @@ var router = express.Router();
           // req.flash('success_msg', 'You are registered and can now login')
 
           }else {
-           db.Users.create(req.body).then(function(err,user) {
+           db.User.create(req.body).then(function(err,user) {
             if(err) throw err;
              console.log(user);
             });
@@ -65,14 +65,22 @@ var router = express.Router();
           passport.authenticate('local', {successRedirect:'/user-dashboard', failureRedirect:'/login', failureFlash: true}),
           function(req, res){
             req.flash('success_msg', "Login Successful")
+            console.log("user login res:" + res);
             res.redirect('/user-dashboard');
+        });
 
-          });
       router.get('/logout', function(req, res){
         req.logout();
         req.flash('success_msg', 'you are logged out');
         res.redirect('/login');
       });
+
+      // Get UserId
+         router.get("/all", isAuthenticated, function (req, res) {
+            db.User.findAll({
+            where: {
+              UserId: req.user.id
+            }
 
 
 

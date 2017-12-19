@@ -11,12 +11,13 @@ var router = express.Router();
             res.render("login");
         });
     // User Game Page
-       router.get("/usergame", function(req, res) {
-           res.render("user-game");
+       router.get("/usergame/:id", function(req, res) {
+           res.render("user-game", {id: req.params.id});
        });
     // Bar Game Page
-      router.get("/bargame", function(req, res) {
-          res.render("bar-game");
+      router.get("/bargame/:id", function(req, res) {
+        //console.log(req.params.id);
+          res.render("bar-game", {id: req.params.id});
       });
     // User Dashboard
        router.get("/user-dashboard", function(req, res) {
@@ -28,4 +29,3 @@ var router = express.Router();
        });
 
 module.exports = router;
-

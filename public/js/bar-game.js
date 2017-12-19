@@ -1,4 +1,10 @@
-  var socket = io.connect('http://localhost:8080');
+  $(document).ready(function(){
+
+  var socket = io();
+
+  
+  console.log(gameID);
+  socket.emit("join room", {room: gameID});
 
   //When receive timer event
   socket.on('countdown', function(time){
@@ -19,6 +25,8 @@
   	}
   });
 
+  var gameData = JSON.parse(localStorage["gameData"]);
+
   //Send get questions
   var gameQs = [];
   //On button click
@@ -28,14 +36,7 @@
     //Show spinner
     $("#spinner").removeClass("hide");
     $("#spinner").addClass("active");
-    //Hardcoded game data from game creation form
-  	var gameData = {
-  		rounds: 3,
-  		qstnsPerRound: 5,
-  		r0cat: "9",
-  		r1cat: "20",
-  		r2cat: "27"
-  	};
+  	console.log(gameData);
     //Post request to api-call
   	$.post("/api/qstn", gameData, function(response, status){
   		 console.log(response.questions);
@@ -59,9 +60,9 @@
     $("#nxtQ").addClass("disabled");
     console.log(gameQs[question]);
     //Send question socket event
-    socket.emit('push question', {q: gameQs[question], number: question, total: gameQs.length});
+    socket.emit('push question', {q: gameQs[question], number: question, total: gameQs.length, room: gameID});
     //Start timer socket event
-    socket.emit('start timer', {start: true});
+    socket.emit('start timer', {room: gameID});
     //Iterate up the array by one
     question++;
   });
@@ -146,3 +147,4 @@
         break;
     }
   });
+});
