@@ -68,12 +68,19 @@ var router = express.Router();
             console.log("user login res:" + res);
             res.redirect('/user-dashboard');
         });
-        
+
       router.get('/logout', function(req, res){
         req.logout();
         req.flash('success_msg', 'you are logged out');
         res.redirect('/login');
       });
+
+      // Get UserId
+         router.get("/all", isAuthenticated, function (req, res) {
+            db.User.findAll({
+            where: {
+              UserId: req.user.id
+            }
 
 
 
