@@ -86,10 +86,10 @@ var io = require('socket.io')(server);
 var routes = require("./routes/html-routes.js");
 var user = require("./routes/user-routes.js")
 var apiRoutes = require("./routes/api-routes.js");
-var appRouts = require("./routes/app-routes.js")
+var appRoutes = require("./routes/app-routes.js")
 app.use("/", routes);
 app.use("/", user);
-app.use("/", appRouts)
+app.use("/", appRoutes)
 app.use("/api", apiRoutes);
 
 
@@ -124,7 +124,7 @@ io.on('connection', function (socket) {
 
 //Array shuffle
 function shuffle(array, cb) {
-  var currentIndex = array.length; 
+  var currentIndex = array.length;
   var temporaryValue;
   var randomIndex;
 
@@ -160,4 +160,3 @@ function shuffle(array, cb) {
   });
 
 });
-

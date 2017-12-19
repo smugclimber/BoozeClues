@@ -18,9 +18,6 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Team.belongsTo(models.Game)
-      foreignKey: {
-        allowNull: false
-      }
   };
 
   return Team;

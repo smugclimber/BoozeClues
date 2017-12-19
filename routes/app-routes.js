@@ -23,31 +23,32 @@ var router = express.Router();
       //   res.render("login");
       //   });
         // Register user
-        router.post("/user", function(req, res) {
-          var name  =req.body.name;
-          var GameId =req.body.GameId;
-          // var password2 = req.body.password2;
-          // console.log(req)
-          // console.log(req.body)
+    router.post("/user", function(req, res) {
+      var name  =req.body.name;
+      var GameId =req.body.GameId;
+      // var password2 = req.body.password2;
+      // console.log(req)
+      // console.log(req.body)
 
-        // Validation
+    // Validation
 
-        req.checkBody('name','Name is required').notEmpty();
-        req.checkBody('GameId','GameId is required').notEmpty();
-        var errors = req.validationErrors();
-        if(errors.length > 0){
-          console.log('===============there was an error======>')
-          res.render('user-game',{
-            errors:errors
-          })
-          // req.flash('success_msg', 'You are registered and can now login')
-          }else {
-           db.Team.create(req.body).then(function(err,team) {
-            if(err) throw err;
-             console.log("teamname and id:"+ team);
-            });
-          }
-});
+    req.checkBody('name','Name is required').notEmpty();
+    req.checkBody('GameId','GameId is required').notEmpty();
+    var errors = req.validationErrors();
+    if(errors.length > 0){
+      console.log('===============there was an error======>')
+      res.render('user-game',{
+        errors:errors
+      })
+      // req.flash('success_msg', 'You are registered and can now login')
+      }else {
+       db.Team.create(req.body).then(function(err,team) {
+        //if(err) throw err;
+        console.log("teamname and id:"+ team);
+         res.redirect("/usergame");
+        });
+      }
+    });
 
     router.post("/app/game", function(req, res) {
     	console.log("Received post request");
