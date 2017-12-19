@@ -16,7 +16,7 @@ var router = express.Router();
        });
     // Bar Game Page
       router.get("/bargame/:id", function(req, res) {
-        console.log("Hitting route");
+        //console.log(req.params.id);
           res.render("bar-game", {id: req.params.id});
       });
     // User Dashboard

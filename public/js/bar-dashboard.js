@@ -27,7 +27,9 @@ $(document).ready(function() {
 			r2cat: $("#round3").val()
 		};
 		console.log(gameData);
-		$.post("/app/game", gameData);
+		$.post("/game", gameData, function(response){
+			document.location.href = '/bargame/'+response.id;
+		});
 	});
 
 });

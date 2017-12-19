@@ -50,11 +50,10 @@ var router = express.Router();
       }
     });
 
-    router.post("/app/game", function(req, res) {
+    router.post("/game", function(req, res) {
         var name = req.body.name;
         // Validation
         req.checkBody('name','Name is required').notEmpty();
-        req.checkBody('qsPerRound','qsPerRound is required').notEmpty();
         var errors = req.validationErrors();
         if(errors.length > 0){
           console.log('there was an error');
@@ -66,7 +65,7 @@ var router = express.Router();
            db.Game.create(req.body).then(function(game, err) {
            		if(err) throw err;
              console.log("game id: "+ game.id);
-             res.redirect('/bargame/'+game.id);
+             res.json(game);
             });
         }
 	});
