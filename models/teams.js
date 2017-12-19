@@ -11,13 +11,16 @@ module.exports = function(sequelize, DataTypes) {
   Team.associate = function(models) {
     Team.belongsToMany(models.Users, {
       through: 'TeamUsers'
-    })
+    });
 
     Team.hasOne(models.Score, {
       onDelete: "cascade"
     });
 
     Team.belongsTo(models.Game)
+      foreignKey: {
+        allowNull: false
+      }
   };
 
   return Team;
