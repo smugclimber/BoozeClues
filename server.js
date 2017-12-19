@@ -6,7 +6,7 @@ var exphbs = require("express-handlebars");
 var router = express.Router();
 var path = require("path");
 
-var expressValidator = require("express-Validator");
+var expressValidator = require("express-validator");
 var flash = require("connect-flash");
 var session = require("express-session");
 var passport = require("passport");
