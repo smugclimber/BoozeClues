@@ -1,16 +1,16 @@
-var passport = require("../config/passport");
+//var passport = require("../config/passport");
 
 $(document).ready(function() {
 
-  router.get("/all", function(req, res) {
+ /* router.get("/all", function(req, res) {
     res.json("userid");
     });
 
   router.get("/register", function(req, res) {
     res.render("register");
-    });
+    });*/
 
-  getUserStats();
+ // getUserStats();
 
   // Function for retrieving user stats and getting them ready to be rendered to the page
   function getUserStats(user) {

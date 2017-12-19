@@ -62,12 +62,12 @@ $("#joinTeam").click(function(){
       //Insert radio button and label for C
       $("#ansC").html("<input type='radio' name='answer' id='answrC' value='"+trivia.q.incorrect_answers[2]+"'><label for='answrC'>"+trivia.q.incorrect_answers[2]+"</label>");
       //Reset background color to _______
-      $("#ansC").css("background-color", "blue");
+      $("#ansC").css("background-color", "#4F93BF");
       $("#ansC").removeClass("hide");
       //Insert radio button and label for D
       $("#ansD").html("<input type='radio' name='answer' id='answrD' value='"+trivia.q.incorrect_answers[3]+"'><label for='answrD'>"+trivia.q.incorrect_answers[3]+"</label>");
       //Reset background color to _______
-      $("#ansD").css("background-color", "blue");
+      $("#ansD").css("background-color", "#4F93BF");
       $("#ansD").removeClass("hide");
     }
     //If the question is true or false

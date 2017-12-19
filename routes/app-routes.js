@@ -8,9 +8,10 @@ var router = express.Router();
       });
 
     router.post("/user", function(req, res) {
+    	console.log(req.body);
       var GameId =req.body.GameId;
 
-    req.checkBody('GameId','GameId is required').notEmpty();
+    /*req.checkBody('GameId','GameId is required').notEmpty();
 
     var errors = req.validationErrors();
     if(errors.length > 0){
@@ -28,11 +29,11 @@ var router = express.Router();
               where: {
                 GameId: req.body.GameId
               }
-            }).then(function(dbPost) {
-              res.redirect("/usergame"+GameId);
-            });
+            }).then(function(GameId) {*/
+              res.redirect("/usergame/"+GameId);
+            /*});
         });
-      }
+      }*/
 });
 
     //    db.Game.add(req.body).then(function(team) {

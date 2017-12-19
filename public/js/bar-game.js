@@ -106,12 +106,12 @@
       //Display answer C
       $("#ansC").html("<p>"+trivia.q.incorrect_answers[2]+"</p>");
       //Reset background color to ______
-      $("#ansC").css("background-color", "blue");
+      $("#ansC").css("background-color", "#4F93BF");
       $("#ansC").removeClass("hide");
       //Display answer D
       $("#ansD").html("<p>"+trivia.q.incorrect_answers[3]+"</p>");
       //Reset background color to ______
-      $("#ansD").css("background-color", "blue");
+      $("#ansD").css("background-color", "#4F93BF");
       $("#ansD").removeClass("hide");
     }
     //if True/False
