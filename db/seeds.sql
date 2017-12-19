@@ -2,7 +2,6 @@ SELECT * FROM users;
 SELECT * FROM games;
 SELECT * FROM teams;
 SELECT * FROM scores;
-SELECT * FROM userteams;
 SELECT * FROM teamusers;
 
 INSERT INTO users (name, username, email, password, access, createdAt, updatedAt)
