@@ -6,7 +6,7 @@ var router = express.Router();
 
 function getQs(req, cb){
 	console.log("function running");
-	var url = "https://opentdb.com/api.php?amount="+ req.body.qstnsPerRound;
+	var url = "https://opentdb.com/api.php?amount="+ req.body.qsPerRound;
 	var game = [];
 	var roundCat;
 	var i = 0;

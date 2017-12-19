@@ -11,8 +11,8 @@ var router = express.Router();
             res.render("login");
         });
     // User Game Page
-       router.get("/usergame", function(req, res) {
-           res.render("user-game");
+       router.get("/usergame/:id", function(req, res) {
+           res.render("user-game", {id: req.params.id});
        });
     // Bar Game Page
       router.get("/bargame/:id", function(req, res) {

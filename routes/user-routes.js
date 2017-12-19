@@ -41,7 +41,7 @@ var router = express.Router();
           // req.flash('success_msg', 'You are registered and can now login')
 
           }else {
-           db.Users.create(req.body).then(function(err,user) {
+           db.User.create(req.body).then(function(err,user) {
             if(err) throw err;
              console.log(user);
             });

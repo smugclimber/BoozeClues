@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
+	var socket = io();
+
 	$.get("api/cats").done(function(response){
-		console.log(response);
-		var htmlStr = "";
 		var newOpt;
 		newOpt = $("<option></option>");
 		newOpt.attr("value", "0");
@@ -21,11 +21,13 @@ $(document).ready(function() {
 		//preventDefault();
 		var gameData = {
 			name: $("#game_name").val(),
+			rounds: 3,
 			qsPerRound: $("#qsPerRound").val(),
 			r0cat: $("#round1").val(),
 			r1cat: $("#round2").val(),
 			r2cat: $("#round3").val()
 		};
+		localStorage["gameData"] = JSON.stringify(gameData);
 		console.log(gameData);
 		$.post("/game", gameData, function(response){
 			document.location.href = '/bargame/'+response.id;
