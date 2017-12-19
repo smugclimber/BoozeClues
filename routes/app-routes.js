@@ -49,6 +49,33 @@ var router = express.Router();
           }
 });
 
+    router.post("/app/game", function(req, res) {
+    	console.log("Received post request");
+        var name = req.body.name;
+        // Validation
+        req.checkBody('name','Name is required').notEmpty();
+        req.checkBody('qsPerRound','qsPerRound is required').notEmpty();
+        var errors = req.validationErrors();
+        if(errors.length > 0){
+          console.log('there was an error');
+          res.render('bar-dashboard',{
+            errors:errors
+          });
+        }
+        else {
+           db.Game.create({
+           		name: name
+           }).then(function(err,game) {
+            if(err) throw err;
+             console.log("game id:"+ game);
+             res.send(game);
+             //res.render('bar-game')
+            }).catch(function(err){
+            	console.log("Error: " + err);
+            });
+        }
+});
+
 
         // router.post('/user',
         //   // passport.authenticate('local', {successRedirect:'/bargame', failureRedirect:'/user', failureFlash: true}),

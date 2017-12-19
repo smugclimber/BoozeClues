@@ -45,7 +45,6 @@ function getQs(req, cb){
 		request("https://opentdb.com/api_category.php", function(err, resp, body){
 			if(err) console.log(err);
 			body = JSON.parse(body);
-			console.log(body);
 			res.json(body);
 		});
 	});

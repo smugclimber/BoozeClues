@@ -18,7 +18,7 @@ $(document).ready(function() {
 	});
 
 	$("#newGame").on("click", function(){
-		preventDefault();
+		//preventDefault();
 		var gameData = {
 			name: $("#game_name").val(),
 			qsPerRound: $("#qsPerRound").val(),
@@ -26,6 +26,7 @@ $(document).ready(function() {
 			r1cat: $("#round2").val(),
 			r2cat: $("#round3").val()
 		};
+		console.log(gameData);
 		$.post("/app/game", gameData, function(response,status){
 			console.log(response);
 		});
