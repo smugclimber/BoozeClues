@@ -25,7 +25,7 @@ var router = express.Router();
         // Register user
         router.post("/user", function(req, res) {
           var name  =req.body.name;
-          var gameId =req.body.gameId;
+          var GameId =req.body.gameId;
           // var password2 = req.body.password2;
           // console.log(req)
           // console.log(req.body)
@@ -33,11 +33,11 @@ var router = express.Router();
         // Validation
 
         req.checkBody('name','Name is required').notEmpty();
-         req.checkBody('gameId','gameId is required').notEmpty();
+         req.checkBody('GameId','gameId is required').notEmpty();
         var errors = req.validationErrors();
         if(errors.length > 0){
           console.log('===============there was an error======>')
-          res.render('user-game',{
+          res.render('usergame',{
             errors:errors
           })
           // req.flash('success_msg', 'You are registered and can now login')
