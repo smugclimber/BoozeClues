@@ -76,6 +76,15 @@ var router = express.Router();
       });
 
       // Get UserId
+    //      router.get("/all", isAuthenticated, function (req, res) {
+    //         db.User.findAll({
+    //         where: {
+    //           UserId: req.user.id
+    //         }
+    //     });
+    // });
+
+
         //  router.get("/all", isAuthenticated, function (req, res) {
         //     db.User.findAll({
         //     where: {

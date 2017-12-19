@@ -1,11 +1,13 @@
+
 SELECT * FROM users;
 SELECT * FROM games;
 SELECT * FROM teams;
 SELECT * FROM scores;
 SELECT * FROM teamusers;
 
-INSERT INTO users (name, username, email, password, access, createdAt, updatedAt)
-VALUES ("Nick", "Nick", "smugclimber@gmail.com", "password", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Omar", "Omar", "omar@aol.com", "password", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Bar Louie", "Bar Louie", "bar@barlouie.com", "barpassword", true, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Crafthouse", "Crafthouse", "bar@crafthouse.com", "craftpassword", true, '1000-01-01 00:00:00', '1000-01-01 00:00:00');
+
+INSERT INTO users (name, username, email, password, access, createdAt, updatedAt, GameId)
+VALUES ("Nick", "Nick", "smugclimber@gmail.com", "password", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 1), ("Omar", "Omar", "omar@aol.com", "password", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 2), ("Louie", "Louie", "bar@barlouie.com", "barpassword", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00', 1), ("Bob", "Bob", "bob@crafthouse.com", "craftpassword", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00',2);
 
 INSERT INTO games (name, active, createdAt, updatedAt)
 VALUES ("Taco Tuesday Trivia", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Saturday Trivia", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("History Monday", false,'1000-01-01 00:00:00', '1000-01-01 00:00:00'), ("Throwback Thursday", false, '1000-01-01 00:00:00', '1000-01-01 00:00:00');
