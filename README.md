@@ -10,7 +10,6 @@ Handlebars <br>
 Passport User Auth <br>
 socket.io <br>
 MySQL <br>
-JQuery <br>
 Heroku <br>
 NPM <br>
 Git / Github <br>
