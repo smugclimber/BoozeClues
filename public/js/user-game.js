@@ -121,7 +121,8 @@ var qsTotal = 0;
       qsTotal++;
     }
     //Put request to database
-    $("#scores").text("Total Points: "+ userScore + " Number Correct: " + qsCorrect+ "/"+qsTotal);
+    $("#scores").text(userScore);
+    $("#answers").text(qsCorrect+ " / "+qsTotal);
 
     switch(answer) {
       case $("#ansA").text():

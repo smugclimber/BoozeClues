@@ -96,6 +96,8 @@ body {
     border-radius: 0 0 5pt 5pt;
     line-height: 10vh;
     color: white;
+      background-color: #2ABBAD;
+      font-size: 25pt;
 }
 
 #wait{
@@ -103,11 +105,15 @@ body {
     font-family: 'Spectral SC', serif;
 }
 
-#ranks{
+#answers{
     text-align: center;
     line-height: 10vh;
     height: 10vh;
     border-radius: 0 0 5pt 5pt;
+      color: white;
+      background-color: #2ABBAD;
+      font-size: 25pt;
+
 }
 
 .tabs {
